@@ -1,0 +1,16 @@
+{
+    "name": "kobiyim/kobiyim",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Kobiyim\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nuh",
+            "email": "nuh@kobiyim.com"
+        }
+    ]
+}
