@@ -1,11 +1,18 @@
 {
     "name": "kobiyim/kobiyim",
     "require": {
+        "php": "^8.0.2",
+        "laravel/framework": "^9.2",
+        "laravel/helpers": "^1.5",
+        "laravelcollective/html": "^6.3",
     },
     "autoload": {
         "psr-4": {
             "Kobiyim\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "authors": [
         {
