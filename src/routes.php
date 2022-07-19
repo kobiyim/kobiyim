@@ -51,7 +51,7 @@ Route::group([
     });
 });
 
-Route::group(['namespace' => '\App\Kobiyim\Auth\Http\Controllers'], function () {
+Route::group(['namespace' => '\Kobiyim\Auth\Http\Controllers'], function () {
     // Authentication...
     Route::get('login', 'AuthenticatedSessionController@create')
         ->middleware(['guest'])
