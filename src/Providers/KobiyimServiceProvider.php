@@ -6,8 +6,8 @@ use Illuminate\Support\ServiceProvider;
 
 class KobiyimServiceProvider extends ServiceProvider
 {
-	public function boot()
-	{
-		//
-	}
+    public function boot()
+    {
+        //
+    }
 }
