@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->routes(function () {
             Route::middleware('web')
-                ->group(base_path('app/Kobiyim/routes.php'));
+                ->group(__DIR__ . '/../routes.php');
         });
     }
 }
