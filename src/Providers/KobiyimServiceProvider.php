@@ -8,6 +8,6 @@ class KobiyimServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        //
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'kobiyim');
     }
 }
