@@ -1,7 +1,16 @@
 <?php
 
+/**
+ * Kobiyim
+ * 
+ * @package kobiyim/kobiyim
+ * @since v1.0.0
+ */
+
 namespace App\Providers;
 
+use App\Metronic\Init;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Init::run();
     }
 }
