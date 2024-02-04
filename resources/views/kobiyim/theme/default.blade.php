@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.8
  */
 --}}
 <!DOCTYPE html>
@@ -69,8 +69,6 @@
 			<script src="{{ asset('plugins/custom/datatables/datatables.bundle.js') }}" type="text/javascript"></script>
 		@endif
 
-		<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-
 		@include('kobiyim.js.main')
 
 		@if(isset($update))
@@ -101,8 +99,6 @@
 				});
 			</script>
 		@endif
-
-		@include('kobiyim.js.pusher')
 
 		@yield('scripts')
 
