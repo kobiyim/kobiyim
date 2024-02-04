@@ -6,7 +6,15 @@ use Illuminate\Support\Facades\Route;
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.1
+ * @since v1.0.4
  */
 
-Route::get('/', 'PagesController@dashboard')->name('dashboard');
+Route::group([
+	'middleware'	=> [ 'auth' ]
+], function() {
+
+	Route::get('/', 'PagesController@dashboard')->name('dashboard');
+
+	Route::post('modals', 'ModalsController@__invoke')->name('modals');
+
+});
