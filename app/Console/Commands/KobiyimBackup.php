@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.12
  */
 
 namespace App\Console\Commands;
@@ -27,7 +27,7 @@ class KobiyimBackup extends Command
     {
         if(env('APP_ENV') == 'live') {
             try {
-                $filename = now()->format('dmY-Hi');
+                $filename = now()->format('Ymd-Hi');
 
                 MySql::create()
                     ->setDbName(env('DB_DATABASE'))
@@ -37,17 +37,7 @@ class KobiyimBackup extends Command
                     ->dumpToFile(storage_path('app/backup/'.$filename.'.sql'));
 
                 \Storage::disk('digitalocean')->put(env('KOBIYIMUSERNAME').'/'.$filename.'.sql', \File::get(storage_path('app/backup/'.$filename.'.sql')));
-
-                connectToKobiyim([
-                    'job'    => 'save-backup-status',
-                    'status' => 'success',
-                ]);
             } catch (\Exception $e) {
-                connectToKobiyim([
-                    'job'     => 'save-backup-status',
-                    'status'  => 'error',
-                    'message' => $e->getMessage(),
-                ]);
             }
         }
     }
