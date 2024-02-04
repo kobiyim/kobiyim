@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Kobiyim
+ * 
+ * @package kobiyim/kobiyim
+ * @since v1.0.9
+ */
+
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -182,7 +189,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Metronic' => App\Metronic\Metronic::class,
+        'Menu'     => App\Metronic\Menu::class,
     ])->toArray(),
 
 ];
