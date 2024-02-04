@@ -3,16 +3,14 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.7
  */
 --}}
 @extends('kobiyim.theme.auth')
 
 @section('content')
 	<div class="d-flex flex-center mb-15">
-		<a href="{{ route('dashboard') }}">
-			<img src="{{ asset('logo.jpg') }}" class="max-h-75px" alt="" />
-		</a>
+		@include('logo.auth')
 	</div>
 	<div class="login-signin">
 		@if ($errors->any())
@@ -30,9 +28,6 @@
 			</div>
 			<div class="form-group mb-5">
 				{{ Form::text('phone', null, [ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
-			</div>
-			<div class="form-group mb-5">
-				{{ Form::text('email', null, [ 'id' => 'email', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Mail adresiniz']) }}
 			</div>
 			<div class="form-group mb-5">
 				{{ Form::password('password', [ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz']) }}

@@ -3,39 +3,12 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.7
  */
 --}}
 {{-- Header Mobile --}}
 <div id="kt_header_mobile" class="header-mobile {{ Metronic::printClasses('header-mobile', false) }}" {{ Metronic::printAttrs('header-mobile') }}>
-	<div class="mobile-logo">
-		<a href="{{ url('/') }}">
-
-			@php
-				$kt_logo_image = 'logo-light.png'
-			@endphp
-
-			@if (config('layout.aside.self.display') == false)
-
-				@if (config('layout.header.self.theme') === 'light')
-					@php $kt_logo_image = 'logo-dark.png' @endphp
-				@elseif (config('layout.header.self.theme') === 'dark')
-					@php $kt_logo_image = 'logo-light.png' @endphp
-				@endif
-
-			@else
-
-				@if (config('layout.brand.self.theme') === 'light')
-					@php $kt_logo_image = 'logo-dark.png' @endphp
-				@elseif (config('layout.brand.self.theme') === 'dark')
-					@php $kt_logo_image = 'logo-light.png' @endphp
-				@endif
-
-			@endif
-
-			<h4 class="text-warning text-hover-secondary" style="margin-left:15px;margin-bottom: 0px;">{{ env('APPNAME') }}</h1>
-		</a>
-	</div>
+	@include('logo.mobile')
 	<div class="d-flex align-items-center">
 
 		@if (config('layout.aside.self.display'))

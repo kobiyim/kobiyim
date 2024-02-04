@@ -3,16 +3,14 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.7
  */
 --}}
 @extends('kobiyim.theme.auth')
 
 @section('content')
 	<div class="d-flex flex-center mb-15">
-		<a href="{{ route('dashboard') }}">
-			<img src="{{ asset('logo.jpg') }}" class="max-h-75px" alt="" />
-		</a>
+		@include('logo.auth')
 	</div>
 	<div class="login-signin">
 		@if ($errors->any())
