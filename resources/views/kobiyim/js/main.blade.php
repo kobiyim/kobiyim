@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.15
  */
 --}}
 	<script type="text/javascript">
@@ -21,17 +21,24 @@
 				data: data,
 				dataType: "json",
 				async: false,
-				success: function (rsp) {
+				success: function (rsp, textStatus, xhr) {
 					postApiResult = rsp;
 					if(typeof success == 'function') success();
 				},
-				error: function () {
-					swal.fire({
-						"title": "HATA.",
-						"text": "İstekte hata oluştu. En kısa sürede bu durum gidirilecek size bilgi verilecektir.",
-						"type": "error",
-						"confirmButtonClass": "btn btn-secondary"
-					});
+				error: function (rsp, textStatus) {
+					if (rsp.status == 419) {
+						swal.fire({
+							"title": "Oturum Süresi Doldu",
+							"text": "Bi süre hareketsiz kaldınız. Sisteme giriş sayfasına yönlendiriliyorsunuz.",
+        					"showConfirmButton": false
+						});
+
+					    window.setTimeout(function(){
+
+					        window.location.href = "{{ route('dashboard') }}";
+
+					    }, 3000);
+					}
 				}
 			});
 			return postApiResult;
