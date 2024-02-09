@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Kobiyim
+ * 
+ * @package kobiyim/kobiyim
+ * @since v1.0.16
+ */
+
 use Illuminate\Support\Str;
 
 return [
@@ -18,7 +25,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => 'database',
 
     /*
     |--------------------------------------------------------------------------
