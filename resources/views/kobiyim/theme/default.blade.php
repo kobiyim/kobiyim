@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.8
+ * @since v1.0.18
  */
 --}}
 <!DOCTYPE html>
@@ -69,7 +69,11 @@
 			<script src="{{ asset('plugins/custom/datatables/datatables.bundle.js') }}" type="text/javascript"></script>
 		@endif
 
-		@include('kobiyim.js.main')
+		@hasSection('admin')
+			@include('kobiyim.js.admin')
+		@else
+			@include('kobiyim.js.main')
+		@endif
 
 		@if(isset($update))
 			<div class="modal fade" id="changelog" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeLg" aria-hidden="true">

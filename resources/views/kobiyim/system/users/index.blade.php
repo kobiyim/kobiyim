@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 @extends('kobiyim.theme.default')
@@ -12,9 +12,6 @@
 	<div class="card card-custom">
 		<div class="card-header align-items-center border-0">
 			<div class="card-title">
-				<span class="card-icon">
-					<i class="la la-industry"></i>
-				</span>
 				<h3 class="card-label">Kullanıcılar</h3>
 			</div>
 			<div class="card-toolbar">
@@ -29,7 +26,6 @@
 					<tr>
 						<th>Kullanıcı Adı</th>
 						<th>Telefon</th>
-						<th>Email</th>
 						<th class="text-center" width="10%">İşlemler</th>
 					</tr>
 				</thead>
@@ -41,8 +37,10 @@
 
 @section('datatable', true)
 
+@section('admin', true)
+
 @section('title', 'Kullanıcılar')
 
 @section('scripts')
-	@include('js.system.users.index')
+	@include('kobiyim.js.system.users.index')
 @endsection

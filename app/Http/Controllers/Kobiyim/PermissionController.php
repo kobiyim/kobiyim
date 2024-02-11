@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -40,7 +40,7 @@ class PermissionController extends Controller
             ],
             [
                 'name' => 'required|min:3|max:64',
-                'key'  => 'required|size:16',
+                'key'  => 'required|max:16',
             ],
             [
                 'name.required' => 'Stok adı girmelisiniz.',
@@ -94,7 +94,7 @@ class PermissionController extends Controller
         if ($validator->passes()) {
             Permission::find($id)->update([
                 'name'  => $request->name,
-                'phone' => $request->phone,
+                'key' => $request->key,
             ]);
 
             activityRecord([

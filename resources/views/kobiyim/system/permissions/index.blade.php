@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 @extends('kobiyim.theme.default')
@@ -12,9 +12,6 @@
 	<div class="card card-custom">
 		<div class="card-header align-items-center border-0">
 			<div class="card-title">
-				<span class="card-icon">
-					<i class="la la-industry"></i>
-				</span>
 				<h3 class="card-label">İzinler</h3>
 			</div>
 			<div class="card-toolbar">
@@ -40,8 +37,10 @@
 
 @section('datatable', true)
 
+@section('admin', true)
+
 @section('title', 'İzinler')
 
 @section('scripts')
-	@include('js.system.permissions.index')
+	@include('kobiyim.js.system.permissions.index')
 @endsection

@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 @extends('kobiyim.theme.auth')
@@ -40,6 +40,5 @@
 @section('scripts')
 	<script type="text/javascript">
 		$("#phone").inputmask("0 (999) 999 9999");
-		$("#email").inputmask('email');
 	</script>
 @endsection

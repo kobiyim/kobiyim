@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 <script type="text/javascript">
@@ -60,6 +60,7 @@
 			name : $("#name").val(),
 			phone : $("#phone").val(),
 			password : $("#password").val(),
+			type	: $("#type").val()
 		});
 
 		if(rsp.status == 'error') {
@@ -85,6 +86,7 @@
 			name : $("#name" + id).val(),
 			phone : $("#phone" + id).val(),
 			password : $("#password" + id).val(),
+			type	: $("#type" + id).val()
 		});
 
 		if(rsp.status == 'error') {

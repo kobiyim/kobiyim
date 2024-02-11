@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 @if(config('layout.self.layout') == 'blank')
@@ -38,7 +38,7 @@
 					@include('kobiyim.theme.base._content')
 				</div>
 
-				<!-- include('kobiyim.theme.base._footer') -->
+				@include('kobiyim.theme.base._footer')
 			</div>
 		</div>
 	</div>

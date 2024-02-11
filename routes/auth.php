@@ -4,14 +4,14 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 
 use Illuminate\Support\Facades\Route;
 
 Route::group([
     'middleware' => ['auth'],
-    'namespace' => 'App\Http\Controllers\Kobiyim'
+    'namespace' => '\App\Http\Controllers\Kobiyim'
 ], function () {
     Route::get('kobiyim', 'SystemController@kobiyim')->name('kobiyim');
 

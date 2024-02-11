@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -29,14 +29,14 @@ class KobiyimModalsController extends Controller
     public function createUser(Request $request)
     {
         return response()->json([
-            'data' => view('kobiyim.system.modals.users.create')->render(),
+            'data' => view('kobiyim.modals.users.create')->render(),
         ]);
     }
 
     public function editUser(Request $request)
     {
         return response()->json([
-            'data' => view('kobiyim.system.modals.users.edit', [
+            'data' => view('kobiyim.modals.users.edit', [
                 'get' => User::find($request->id),
             ])->render(),
         ]);
@@ -45,14 +45,14 @@ class KobiyimModalsController extends Controller
     public function createPermission(Request $request)
     {
         return response()->json([
-            'data' => view('kobiyim.system.modals.permissions.create')->render(),
+            'data' => view('kobiyim.modals.permissions.create')->render(),
         ]);
     }
 
     public function editPermission(Request $request)
     {
         return response()->json([
-            'data' => view('kobiyim.system.modals.permissions.edit', [
+            'data' => view('kobiyim.modals.permissions.edit', [
                 'get' => Permission::find($request->id),
             ])->render(),
         ]);

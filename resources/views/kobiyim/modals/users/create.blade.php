@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 <div class="modal fade" id="createUser" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
@@ -39,23 +39,9 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-lg-3 col-form-label text-right">Mail Adresi:</label>
-						<div class="col-lg-9">
-							{!! Form::text('', null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'email' ]) !!}
-							<div class="invalid-feedback" id="nameError"></div>
-						</div>
-					</div>
-					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Türü:</label>
 						<div class="col-lg-9">
-							{!! Form::select('', [ 1 => 'Fuar Mobilya', 2 => 'Müşteri' ], null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' ]) !!}
-							<div class="invalid-feedback" id="nameError"></div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-lg-3 col-form-label text-right">Müşteri:</label>
-						<div class="col-lg-9">
-							{!! Form::select('', $customers, null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'customer_id' ]) !!}
+							{!! Form::select('', config('kobiyim.user_types'), null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
@@ -72,5 +58,4 @@
 
 <script type="text/javascript">
 	$("#phone").inputmask("0 (999) 999 9999");
-	$("#email").inputmask("email");
 </script>

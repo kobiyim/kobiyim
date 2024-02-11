@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 --}}
 @extends('kobiyim.theme.default')
@@ -36,4 +36,6 @@
 	</div>
 @endsection
 
-@section('title', 'Kullanıcı İzinleri')
+@section('title', $get->name . ' için İzinler')
+
+@section('admin', true)

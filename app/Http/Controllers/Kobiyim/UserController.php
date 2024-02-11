@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.18
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -47,11 +47,13 @@ class UserController extends Controller
                 'name'     => $request->name,
                 'phone'    => $request->phone,
                 'password' => $request->password,
+                'type'     => $request->type
             ],
             [
                 'name'     => 'required|min:3|max:128',
                 'phone'    => 'required_without:email|nullable',
                 'password' => 'required|min:8',
+                'type'     => 'required'
             ],
             [
                 'name.required' => 'Stok adı girmelisiniz.',
@@ -93,6 +95,7 @@ class UserController extends Controller
             [
                 'name'  => $request->name,
                 'phone' => $request->phone,
+                'type'  => $request->type
             ],
             [
                 'name'  => 'required|min:3|max:128',
