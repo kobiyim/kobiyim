@@ -73,11 +73,20 @@ if (! function_exists('month')) {
 if (! function_exists('can')) {
     function can($permissionKey)
     {
-        return
-            Auth::check()
-            &&
-            Permission::where('key', $permissionKey)->first() != null
-            &&
-            UserPermission::where('user_id', Auth::id())->where('permission_id', Permission::where('key', $permissionKey)->first()->id)->first() != null;
+        if(Auth::check()) {
+            if(Auth::user()->type == 'admin') {
+                return true;
+            } else {
+                if(
+                    Permission::where('key', $permissionKey)->first() != null
+                        AND
+                    UserPermission::where('user_id', Auth::id())->where('permission_id', Permission::where('key', $permissionKey)->first()->id)->first() != null
+                ) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

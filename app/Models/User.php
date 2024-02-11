@@ -20,6 +20,7 @@ class User extends Authenticatable
         'phone',
         'password',
         'is_active',
+        'type',
         'remember_token',
         'remember_expires_at',
     ];
