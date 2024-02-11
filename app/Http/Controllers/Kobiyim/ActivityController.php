@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.19
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -29,7 +29,7 @@ class ActivityController extends Controller
                 return $model->created_at->format('d.m.Y H:i');
             })
             ->editColumn('causer_id', function ($model) {
-                return $model->getUser->name;
+                return ($model->causer_id != null) ? $model->getUser->name : 'Tanımsız';
             })
             ->toJson();
     }

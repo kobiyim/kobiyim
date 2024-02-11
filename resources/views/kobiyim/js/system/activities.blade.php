@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.19
  */
 --}}
 <script type="text/javascript">
@@ -16,6 +16,7 @@
 		fixedHeader: true,
 		processing: true,
 		serverSide: true,
+		ordering: false,
 		ajax: {
 			url: '{{ route('activity.json') }}'
 		},
