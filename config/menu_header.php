@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.20
  */
 
 // Header menu
@@ -36,6 +36,24 @@ return [
                             [
                                 'segment' => 3,
                                 'value'   => 'activity',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title'       => 'Sorgu Takibi',
+                        'page'        => 'system/querylogs',
+                        'whereActive' => [
+                            [
+                                'segment' => 1,
+                                'value'   => 'user',
+                            ],
+                            [
+                                'segment' => 2,
+                                'value'   => 'system',
+                            ],
+                            [
+                                'segment' => 3,
+                                'value'   => 'user',
                             ],
                         ],
                     ],
