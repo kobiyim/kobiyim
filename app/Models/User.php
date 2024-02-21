@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.21
  */
 
 namespace App\Models;
@@ -27,5 +27,10 @@ class User extends Authenticatable
 
     protected $hidden = [
         'password',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'password' => 'hashed',
     ];
 }
