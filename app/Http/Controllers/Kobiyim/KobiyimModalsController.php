@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.20
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Models\Permission;
 use App\Models\User;
+use App\Models\QueryLog;
 
 class KobiyimModalsController extends Controller
 {
@@ -54,6 +55,15 @@ class KobiyimModalsController extends Controller
         return response()->json([
             'data' => view('kobiyim.modals.permissions.edit', [
                 'get' => Permission::find($request->id),
+            ])->render(),
+        ]);
+    }
+
+    public function viewQueryLog(Request $request)
+    {
+        return response()->json([
+            'data' => view('kobiyim.modals.viewQueryLog', [
+                'get' => QueryLog::find($request->id),
             ])->render(),
         ]);
     }

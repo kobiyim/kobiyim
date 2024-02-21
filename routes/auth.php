@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.20
  */
 
 use Illuminate\Support\Facades\Route;
@@ -23,6 +23,13 @@ Route::group([
         ], function () {
             Route::get('/', 'ActivityController@index')->name('activity');
             Route::get('json', 'ActivityController@json')->name('activity.json');
+        });
+
+        Route::group([
+            'prefix' => 'querylogs',
+        ], function () {
+            Route::get('/', 'QueryLogController@index')->name('querylog');
+            Route::get('json', 'QueryLogController@json')->name('querylog.json');
         });
 
         Route::get('user/json', 'UserController@json')->name('user.json');

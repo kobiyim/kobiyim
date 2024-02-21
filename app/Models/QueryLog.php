@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.20
  */
 
 namespace App\Models;
@@ -24,4 +24,9 @@ class QueryLog extends Model
     public $timestamps = true;
 
     protected $dates = ['created_at', 'updated_at'];
+
+    public function getUser()
+    {
+        return $this->hasOne(User::class, 'id', 'causer_id');
+    }
 }
