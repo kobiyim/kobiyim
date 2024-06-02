@@ -4,14 +4,13 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 
 namespace App\Providers;
 
-use App\Metronic\Init;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
+use App\Metronic\Init;
 
 class AppServiceProvider extends ServiceProvider
 {

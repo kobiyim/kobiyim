@@ -20,28 +20,28 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Adı:</label>
 						<div class="col-lg-9">
-							{!! Form::text('', null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
+							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Şifresi:</label>
 						<div class="col-lg-9">
-							{!! Form::password('', [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'password' ]) !!}
+							{!! html()->password('')->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'password' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Telefon Numarası:</label>
 						<div class="col-lg-9">
-							{!! Form::text('', null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' ]) !!}
+							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Türü:</label>
 						<div class="col-lg-9">
-							{!! Form::select('', config('kobiyim.user_types'), null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' ]) !!}
+							{!! html()->select('', config('kobiyim.user_types'), null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>

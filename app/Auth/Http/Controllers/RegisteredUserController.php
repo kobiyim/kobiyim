@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 
 namespace App\Auth\Http\Controllers;
@@ -24,6 +24,6 @@ class RegisteredUserController extends \Illuminate\Routing\Controller
     {
         $creator->create($request->all());
 
-        return redirect('/');
+        return redirect()->route('dashboard');
     }
 }

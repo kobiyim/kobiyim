@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 
 namespace App\Auth\Http\Controllers;
@@ -59,6 +59,8 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
     {
         activityRecord([
             'description' => 'Kullanıcı çıkış yaptı.',
+            'subject_type' => 'Session',
+            'subject_id' => Auth::id(),
             'causer_id' => Auth::id(),
         ]);
 

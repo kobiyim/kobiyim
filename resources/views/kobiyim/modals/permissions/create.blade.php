@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 --}}
 <div class="modal fade" id="createPermission" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
@@ -20,14 +20,14 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">İzin:</label>
 						<div class="col-lg-9">
-							{!! Form::text('', null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
+							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Anahtarı:</label>
 						<div class="col-lg-9">
-							{!! Form::text('', null, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'key' ]) !!}
+							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'key' ]) !!}
 							<div class="invalid-feedback" id="keyError"></div>
 						</div>
 					</div>

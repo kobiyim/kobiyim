@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.22
  */
 --}}
 @extends('kobiyim.theme.auth')
@@ -18,18 +18,18 @@
 				<span>{!! $errors->toArray()['message'][0] !!}</span>
 			</div>
 		@endif
-		{{ Form::open([ 'route' => 'login', 'class' => 'form' ]) }}
+		{{ html()->form()->route('login')->class('form')->open() }}
 			<div class="form-group mb-5">
-				{{ Form::text('phone', null, [ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
+				{{ html()->text('phone', null)->attributes([ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
 			</div>
 			<div class="form-group mb-5">
-				{{ Form::password('password', [ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz']) }}
+				{{ html()->password('password')->attributes([ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz']) }}
 			</div>
 			<div class="form-group d-flex flex-wrap justify-content-between align-items-center">
 				<a href="{{ route('password.request') }}" id="kt_login_forgot" class="text-muted text-hover-primary">Şifremi Unuttum?</a>
 			</div>
-			{{ Form::submit('Giriş', [ 'class' => 'btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4']) }}
-		{{ Form::close() }}
+			{{ html()->submit('Giriş')->attributes([ 'class' => 'btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4']) }}
+		{{ html()->form()->close() }}
 		<div class="mt-10">
 			<span class="opacity-70 mr-4">Hesabınız yok mu?</span>
 			<a href="{{ route('register') }}" class="text-muted text-hover-primary font-weight-bold">Kayıt ol!</a>

@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.22
  */
 --}}
 @extends('kobiyim.theme.auth')
@@ -20,12 +20,12 @@
 				@endforeach
 			</div>
 		@endif
-		{{ Form::open([ 'route' => 'password.send', 'class' => 'form' ]) }}
+		{{ html()->form()->route('password.send')->class('form')->open()  }}
 			<div class="form-group mb-5">
-				{{ Form::text('phone', null, [ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
+				{{ html()->text('phone', null,)->attributes([ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
 			</div>
-			{{ Form::submit('Şifremi Sıfırla', [ 'class' => 'btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4']) }}
-		{{ Form::close() }}
+			{{ html()->submit('Şifremi Sıfırla')->attributes([ 'class' => 'btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4']) }}
+		{{ html()->form()->close() }}
 		<div class="mt-10">
 			<span class="opacity-70 mr-4">Hesabınız var mı?</span>
 			<a href="{{ route('login') }}" class="text-muted text-hover-primary font-weight-bold">Giriş yapın!</a>

@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 
 namespace App\Auth\Http\Requests;
@@ -21,12 +21,8 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => [
-                'required', 'string', 'size:16',
-            ],
-            'password' => [
-                'required', 'string',
-            ],
+            'phone' => 'required|string|size:16',
+            'password' => 'required|string',
         ];
     }
 

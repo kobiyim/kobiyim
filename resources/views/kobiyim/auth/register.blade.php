@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @since v1.0.22
  */
 --}}
 @extends('kobiyim.theme.auth')
@@ -22,21 +22,21 @@
 				</ul>
 			</div>
 		@endif
-		{{ Form::open([ 'route' => 'register', 'class' => 'form' ]) }}
+		{{ html()->form()->route('register')->class('form')->open()  }}
 			<div class="form-group mb-5">
-				{{ Form::text('name', null, [ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Adınız']) }}
+				{{ html()->text('name', null)->attributes([ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Adınız']) }}
 			</div>
 			<div class="form-group mb-5">
-				{{ Form::text('phone', null, [ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
+				{{ html()->text('phone', null)->attributes([ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız']) }}
 			</div>
 			<div class="form-group mb-5">
-				{{ Form::password('password', [ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz']) }}
+				{{ html()->password('password')->attributes([ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz']) }}
 			</div>
 			<div class="form-group mb-5">
-				{{ Form::password('password_confirmation', [ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz tekrar']) }}
+				{{ html()->password('password_confirmation')->attributes([ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz tekrar']) }}
 			</div>
-			{{ Form::submit('Kayıt ol', [ 'class' => 'btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4']) }}
-		{{ Form::close() }}
+			{{ html()->submit('Kayıt ol')->attributes([ 'class' => 'btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4']) }}
+		{{ html()->form()->close() }}
 		<div class="mt-10">
 			<span class="opacity-70 mr-4">Hesabınız var mı?</span>
 			<a href="{{ route('login') }}" class="text-muted text-hover-primary font-weight-bold">Giriş yapın!</a>

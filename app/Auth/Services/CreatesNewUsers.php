@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 
 namespace App\Auth\Services;
@@ -22,6 +22,8 @@ class CreatesNewUsers
             'name' => $input['name'],
             'phone' => $input['phone'],
             'password' => Hash::make($input['password']),
+            'type' => 'user',
+            'is_active' => 0
         ]);
     }
 }

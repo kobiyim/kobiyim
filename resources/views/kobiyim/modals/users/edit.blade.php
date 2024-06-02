@@ -20,28 +20,28 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Adı:</label>
 						<div class="col-lg-9">
-							{!! Form::text('', $get->name, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' . $get->id ]) !!}
+							{!! html()->text('', $get->name)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Şifresi:</label>
 						<div class="col-lg-9">
-							{!! Form::password('', [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'password' . $get->id ]) !!}
+							{!! html()->password('')->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'password' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Telefon Numarası:</label>
 						<div class="col-lg-9">
-							{!! Form::text('', $get->phone, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' . $get->id ]) !!}
+							{!! html()->text('', $get->phone)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Türü:</label>
 						<div class="col-lg-9">
-							{!! Form::select('', config('kobiyim.user_types'), $get->type, [ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' . $get->id ]) !!}
+							{!! html()->select('', config('kobiyim.user_types'), $get->type)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>

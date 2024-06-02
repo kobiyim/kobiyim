@@ -4,7 +4,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.22
  */
 
 namespace App\Auth\Http\Controllers;
@@ -23,9 +23,7 @@ class PasswordResetLinkController extends \Illuminate\Routing\Controller
     public function store(Request $request)
     {
         $request->validate([
-            'phone' => [
-                'required', 'size:16',
-            ],
+            'phone' => 'required|size:16',
         ]);
 
         $user = User::where('phone', $request->phone)->first();
@@ -35,6 +33,8 @@ class PasswordResetLinkController extends \Illuminate\Routing\Controller
         if (null != $user) {
             activityRecord([
                 'description' => 'Kullanıcı yeni şifre talebinde bulundu.',
+                'subject_type' => 'App\Models\User',
+                'subject_id' => $user->id,
                 'causer_id' => $user->id,
             ]);
 
