@@ -4,22 +4,21 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @since v1.0.23
  */
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Schema;
 use App\Models\User;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class KobiyimUser extends Command
 {
     protected $signature = 'kobiyim:user';
 
-    protected $description = 'Veritabanının yedeğini alın';
+    protected $description = 'Kobiyim içerisine yeni kullanıcı oluştur';
 
     public function __construct()
     {
@@ -37,12 +36,50 @@ class KobiyimUser extends Command
 
         $password = $this->secret('Şifreniz');
 
-        User::create([
-            'name' => $name,
-            'phone' => $phone,
-            'password' => Hash::make($password),
-            'is_active' => 1,
-        ]);
+        $type = $this->choice(
+            'Kullanıcı türü',
+            ['Kullanıcı', 'Yönetici'],
+            0
+        );
+
+        $validator = Validator::make(
+            [
+                'name' => $name,
+                'phone' => $phone,
+                'password' => $password,
+                'type' => $type,
+            ],
+            [
+                'name' => 'required|min:3|max:128',
+                'phone' => 'required|size:16|unique:users,phone',
+                'password' => 'required|min:8',
+                'type' => 'required',
+            ],
+            [
+                'name.required' => 'Kullanıcı adı girmelisiniz.',
+                'name.min' => 'Kullanıcı adı en az 3 karakter olmalıdır.',
+                'name.max' => 'Kullanıcı adı maksimum 128 karakter olabilir.',
+                'phone.required' => 'Telefon alanı gereklidir.',
+                'phone.unique' => 'Telefon numarası önceden kayıt edilmiş.'
+            ]
+        );
+
+        if ($validator->passes()) {
+            User::create([
+                'name' => $name,
+                'phone' => $phone,
+                'password' => Hash::make($password),
+                'is_active' => 1,
+                'type' => ($type == 1) ? 'admin' : 'user'
+            ]);
+        } else {
+            foreach($validator->errors()->all() as $error) {
+                $this->error($error);
+            }
+
+            $this->handle();
+        }
+
 
         $this->info('Kullanıcı oluşturuldu.');
         $this->info('İyi Çalışmalar');
