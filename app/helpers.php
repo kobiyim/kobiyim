@@ -2,18 +2,15 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
- * @since v1.0.22
+ *
+ * @since v1.0.24
  */
-
-use Illuminate\Support\Str;
 
 use App\Models\ActivityLog;
 use App\Models\Permission;
 use App\Models\UserPermission;
 
-if(!function_exists('activityRecord')) {
+if (! function_exists('activityRecord')) {
     function activityRecord($values, $log_name = 'default')
     {
         //'log_name', 'causer_id', 'subject_type', 'subject_id', 'description'
@@ -24,10 +21,10 @@ if(!function_exists('activityRecord')) {
     }
 }
 
-if(!function_exists('connectToKobiyim')) {
+if (! function_exists('connectToKobiyim')) {
     function connectToKobiyim()
     {
-        
+
     }
 }
 
@@ -52,15 +49,15 @@ if (! function_exists('month')) {
     function month($which = null)
     {
         $months = collect([
-            1  => 'Ocak',
-            2  => 'Şubat',
-            3  => 'Mart',
-            4  => 'Nisan',
-            5  => 'Mayıs',
-            6  => 'Haziran',
-            7  => 'Temmuz',
-            8  => 'Ağustos',
-            9  => 'Eylül',
+            1 => 'Ocak',
+            2 => 'Şubat',
+            3 => 'Mart',
+            4 => 'Nisan',
+            5 => 'Mayıs',
+            6 => 'Haziran',
+            7 => 'Temmuz',
+            8 => 'Ağustos',
+            9 => 'Eylül',
             10 => 'Ekim',
             11 => 'Kasım',
             12 => 'Aralık',
@@ -73,13 +70,13 @@ if (! function_exists('month')) {
 if (! function_exists('can')) {
     function can($permissionKey)
     {
-        if(Auth::check()) {
-            if(Auth::user()->type == 'admin') {
+        if (Auth::check()) {
+            if (Auth::user()->type == 'admin') {
                 return true;
             } else {
-                if(
+                if (
                     Permission::where('key', $permissionKey)->first() != null
-                        AND
+                        and
                     UserPermission::where('user_id', Auth::id())->where('permission_id', Permission::where('key', $permissionKey)->first()->id)->first() != null
                 ) {
                     return true;
@@ -88,5 +85,96 @@ if (! function_exists('can')) {
         }
 
         return false;
+    }
+}
+
+if(! function_exists('systemMenu')) {
+    function systemMenu()
+    {
+        return [
+            'title'   => 'Sistem',
+            'root'    => true,
+            'toggle'  => 'click',
+            'can'     => 'system-menusu',
+            'submenu' => [
+                'type'      => 'classic',
+                'alignment' => 'left',
+                'items'     => [
+                    [
+                        'title'       => 'Aktiviteler',
+                        'root'        => true,
+                        'page'        => 'system/activity',
+                        'whereActive' => [
+                            [
+                                'segment' => 1,
+                                'value'   => 'user',
+                            ],
+                            [
+                                'segment' => 2,
+                                'value'   => 'system',
+                            ],
+                            [
+                                'segment' => 3,
+                                'value'   => 'activity',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title'       => 'Sorgu Takibi',
+                        'page'        => 'system/querylogs',
+                        'whereActive' => [
+                            [
+                                'segment' => 1,
+                                'value'   => 'user',
+                            ],
+                            [
+                                'segment' => 2,
+                                'value'   => 'system',
+                            ],
+                            [
+                                'segment' => 3,
+                                'value'   => 'user',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title'       => 'Kullanıcılar',
+                        'page'        => 'system/user',
+                        'whereActive' => [
+                            [
+                                'segment' => 1,
+                                'value'   => 'user',
+                            ],
+                            [
+                                'segment' => 2,
+                                'value'   => 'system',
+                            ],
+                            [
+                                'segment' => 3,
+                                'value'   => 'user',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title'       => 'İzinler',
+                        'page'        => 'system/permission',
+                        'whereActive' => [
+                            [
+                                'segment' => 1,
+                                'value'   => 'user',
+                            ],
+                            [
+                                'segment' => 2,
+                                'value'   => 'system',
+                            ],
+                            [
+                                'segment' => 3,
+                                'value'   => 'permission',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
     }
 }
