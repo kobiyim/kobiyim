@@ -1,9 +1,8 @@
 <?php
 
 /**
- * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ * Kobiyim.
+ *
  * @since v1.0.23
  */
 
@@ -39,7 +38,7 @@ class KobiyimUser extends Command
         $type = $this->choice(
             'Kullanıcı türü',
             ['Kullanıcı', 'Yönetici'],
-            0
+            0,
         );
 
         $validator = Validator::make(
@@ -60,8 +59,8 @@ class KobiyimUser extends Command
                 'name.min' => 'Kullanıcı adı en az 3 karakter olmalıdır.',
                 'name.max' => 'Kullanıcı adı maksimum 128 karakter olabilir.',
                 'phone.required' => 'Telefon alanı gereklidir.',
-                'phone.unique' => 'Telefon numarası önceden kayıt edilmiş.'
-            ]
+                'phone.unique' => 'Telefon numarası önceden kayıt edilmiş.',
+            ],
         );
 
         if ($validator->passes()) {
@@ -70,16 +69,15 @@ class KobiyimUser extends Command
                 'phone' => $phone,
                 'password' => Hash::make($password),
                 'is_active' => 1,
-                'type' => ($type == 1) ? 'admin' : 'user'
+                'type' => ($type == 1) ? 'admin' : 'user',
             ]);
         } else {
-            foreach($validator->errors()->all() as $error) {
+            foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
             }
 
             $this->handle();
         }
-
 
         $this->info('Kullanıcı oluşturuldu.');
         $this->info('İyi Çalışmalar');

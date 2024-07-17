@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.0
  */
 
@@ -14,7 +13,6 @@ class Menu
     /**
      * Aside menu
      *
-     * @param $item
      * @param  null  $parent
      * @param  int  $rec
      * @param  bool  $singleItem
@@ -32,8 +30,8 @@ class Menu
             if (isset($item['separator'])) {
                 echo '<li class="menu-separator"><span></span></li>';
             } elseif (isset($item['section'])) {
-                echo '<li class="menu-section '.($rec === 0 ? 'menu-section--first' : '').'">
-					<h4 class="menu-text">'.$item['section'].'</h4>
+                echo '<li class="menu-section ' . ($rec === 0 ? 'menu-section--first' : '') . '">
+					<h4 class="menu-text">' . $item['section'] . '</h4>
 					<i class="menu-icon flaticon-more-v2"></i>
 				</li>';
             } elseif (isset($item['title'])) {
@@ -50,11 +48,11 @@ class Menu
                     }
 
                     if (isset($item['mode'])) {
-                        $item_attr .= ' data-menu-mode="'.$item['mode'].'"';
+                        $item_attr .= ' data-menu-mode="' . $item['mode'] . '"';
                     }
 
                     if (isset($item['dropdown-toggle-class'])) {
-                        $item_attr .= ' data-menu-toggle-class="'.$item['dropdown-toggle-class'].'"';
+                        $item_attr .= ' data-menu-toggle-class="' . $item['dropdown-toggle-class'] . '"';
                     }
                 }
 
@@ -69,7 +67,7 @@ class Menu
 
                 // custom class for menu item
                 if (isset($item['custom-class'])) {
-                    $item_class .= ' '.$item['custom-class'];
+                    $item_class .= ' ' . $item['custom-class'];
                 }
 
                 if (isset($item['submenu']) && self::isActiveVerMenuItem($item, request()->path())) {
@@ -78,18 +76,18 @@ class Menu
                     $item_class .= ' menu-item-active';
                 }
 
-                echo '<li class="menu-item '.$item_class.'" aria-haspopup="true" '.$item_attr.'>';
+                echo '<li class="menu-item ' . $item_class . '" aria-haspopup="true" ' . $item_attr . '>';
                 if (isset($item['parent'])) {
                     echo '<span class="menu-link">';
                 } else {
                     $url = '#';
 
                     if (isset($item['page'])) {
-                        $url = 'href="'.url($item['page']).'"';
+                        $url = 'href="' . url($item['page']) . '"';
                     }
 
                     if (isset($item['modal'])) {
-                        $url = 'data-toggle="modal" data-target="#'.$item['modal'].'"';
+                        $url = 'data-toggle="modal" data-target="#' . $item['modal'] . '"';
                     }
 
                     $target = '';
@@ -97,7 +95,7 @@ class Menu
                         $target = 'target="_blank"';
                     }
 
-                    echo '<a '.$target.' '.$url.' class="menu-link '.(isset($item['submenu']) ? 'menu-toggle' : '').'">';
+                    echo '<a ' . $target . ' ' . $url . ' class="menu-link ' . (isset($item['submenu']) ? 'menu-toggle' : '') . '">';
                 }
 
                 // Menu arrow
@@ -124,9 +122,9 @@ class Menu
                 }
 
                 // Badge
-                echo '<span class="menu-text">'.$item['title'].'</span>';
+                echo '<span class="menu-text">' . $item['title'] . '</span>';
                 if (isset($item['label'])) {
-                    echo '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
+                    echo '<span class="menu-badge"><span class="label ' . $item['label']['type'] . '">' . $item['label']['value'] . '</span></span>';
                 }
 
                 if ($singleItem == true) {
@@ -166,7 +164,7 @@ class Menu
                     if (isset($item['submenu-up']) && $item['submenu-up'] === true) {
                         $submenu_dir = 'menu-submenu-up';
                     }
-                    echo '<div class="menu-submenu '.$submenu_dir.'">';
+                    echo '<div class="menu-submenu ' . $submenu_dir . '">';
                     echo '<span class="menu-arrow"></span>';
 
                     if (isset($item['custom-class']) && ($item['custom-class'] === 'menu-item-submenu-stretch' || $item['custom-class'] === 'menu-item-submenu-scroll')) {
@@ -174,7 +172,7 @@ class Menu
                     }
 
                     if (isset($item['scroll'])) {
-                        echo '<div class="menu-scroll" data-scroll="true" style="height: '.$item['scroll'].'">';
+                        echo '<div class="menu-scroll" data-scroll="true" style="height: ' . $item['scroll'] . '">';
                     }
 
                     echo '<ul class="menu-subnav">';
@@ -208,7 +206,6 @@ class Menu
     /**
      * Header menu
      *
-     * @param $item
      * @param  null  $parent
      * @param  int  $rec
      */
@@ -283,7 +280,7 @@ class Menu
                 }
 
                 if (isset($item['custom-class'])) {
-                    $item_class .= ' '.$item['custom-class'];
+                    $item_class .= ' ' . $item['custom-class'];
                 }
 
                 if (@$item['icon-only'] == true) {
@@ -291,7 +288,7 @@ class Menu
                 }
 
                 if (isset($item['heading']) == false) {
-                    echo '<li class="menu-item '.$item_class.'" '.$item_attr.' aria-haspopup="true">';
+                    echo '<li class="menu-item ' . $item_class . '" ' . $item_attr . ' aria-haspopup="true">';
                 }
 
                 // check if code is provided instead of link
@@ -311,7 +308,7 @@ class Menu
                             $target = 'target="_blank"';
                         }
 
-                        echo '<a '.$target.' href="'.$url.'" class="menu-link '.(isset($item['submenu']) ? 'menu-toggle' : '').'">';
+                        echo '<a ' . $target . ' href="' . $url . '" class="menu-link ' . (isset($item['submenu']) ? 'menu-toggle' : '') . '">';
                     } else {
                         echo '<h3 class="menu-heading menu-toggle">';
                     }
@@ -340,9 +337,9 @@ class Menu
                     }
 
                     // Badge
-                    echo '<span class="menu-text">'.$item['title'].'</span>';
+                    echo '<span class="menu-text">' . $item['title'] . '</span>';
                     if (isset($item['label'])) {
-                        echo '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
+                        echo '<span class="menu-badge"><span class="label ' . $item['label']['type'] . '">' . $item['label']['value'] . '</span></span>';
                     }
                     // Arrow
                     if (isset($item['submenu']) && (! isset($item['arrow']) || $item['arrow'] != false)) {
@@ -369,7 +366,7 @@ class Menu
                     if (isset($item['submenu'])) {
                         if (in_array($item['submenu']['type'], ['classic', 'tabs'])) {
                             if (isset($item['submenu']['alignment'])) {
-                                $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
+                                $submenu_class = ' menu-submenu-' . $item['submenu']['alignment'];
 
                                 if (isset($item['submenu']['pull']) && $item['submenu']['pull'] == true) {
                                     $submenu_class .= ' menu-submenu-pull';
@@ -380,7 +377,7 @@ class Menu
                                 $submenu_class .= ' menu-submenu-tabs';
                             }
 
-                            echo '<div class="menu-submenu menu-submenu-classic'.$submenu_class.'">';
+                            echo '<div class="menu-submenu menu-submenu-classic' . $submenu_class . '">';
 
                             echo '<ul class="menu-subnav">';
                             $items = [];
@@ -399,20 +396,20 @@ class Menu
 
                             if (intval(@$item['submenu']['width']) > 0) {
                                 $submenu_class = ' menu-submenu-fixed';
-                                $submenu_fixed_width = 'style="width:'.$item['submenu']['width'].'"';
+                                $submenu_fixed_width = 'style="width:' . $item['submenu']['width'] . '"';
                             } else {
-                                $submenu_class = ' menu-submenu-'.$item['submenu']['width'];
+                                $submenu_class = ' menu-submenu-' . $item['submenu']['width'];
                             }
 
                             if (isset($item['submenu']['alignment'])) {
-                                $submenu_class .= ' menu-submenu-'.$item['submenu']['alignment'];
+                                $submenu_class .= ' menu-submenu-' . $item['submenu']['alignment'];
 
                                 if (isset($item['submenu']['pull']) && $item['submenu']['pull'] == true) {
                                     $submenu_class .= ' menu-submenu-pull';
                                 }
                             }
 
-                            echo '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
+                            echo '<div class="menu-submenu ' . $submenu_class . '" ' . ($submenu_fixed_width) . '>';
 
                             echo '<div class="menu-subnav">';
                             echo '<ul class="menu-content">';
@@ -423,7 +420,7 @@ class Menu
                                     $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
                                 }
 
-                                echo '<li class="menu-item '.$item_class.'">';
+                                echo '<li class="menu-item ' . $item_class . '">';
                                 if (isset($column['heading'])) {
                                     self::renderHorMenu($column['heading'], null, $rec++);
                                 }
@@ -582,6 +579,6 @@ class Menu
     // Render icon or bullet
     public static function renderIcon($icon)
     {
-        echo '<i class="menu-icon '.$icon.'"></i>';
+        echo '<i class="menu-icon ' . $icon . '"></i>';
     }
 }

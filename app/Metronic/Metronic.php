@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.0
  */
 
@@ -31,9 +30,9 @@ class Metronic
 
         if (isset(self::$attrs[$scope]) && ! empty(self::$attrs[$scope])) {
             foreach (self::$attrs[$scope] as $name => $value) {
-                $attrs[] = $name.'="'.$value.'"';
+                $attrs[] = $name . '="' . $value . '"';
             }
-            echo ' '.implode(' ', $attrs).' ';
+            echo ' ' . implode(' ', $attrs) . ' ';
         }
         echo '';
     }
@@ -47,9 +46,9 @@ class Metronic
         if (isset(self::$classes[$scope]) && ! empty(self::$classes[$scope])) {
             $classes = implode(' ', self::$classes[$scope]);
             if ($full) {
-                echo ' class="'.$classes.'" ';
+                echo ' class="' . $classes . '" ';
             } else {
-                echo ' '.$classes.' ';
+                echo ' ' . $classes . ' ';
             }
         } else {
             echo '';
@@ -63,7 +62,7 @@ class Metronic
     {
         if (config('layout.resources.fonts.google.families')) {
             $fonts = config('layout.resources.fonts.google.families');
-            echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family='.implode('|', $fonts).'">';
+            echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=' . implode('|', $fonts) . '">';
         }
         echo '';
     }
@@ -71,8 +70,6 @@ class Metronic
     /**
      * Walk recursive array with callback
      *
-     * @param  array  $array
-     * @param  callable  $callback
      * @return array
      */
     public static function arrayWalkCallback(array &$array, callable $callback)
@@ -104,14 +101,14 @@ class Metronic
     {
         $themes = [];
 
-        $themes[] = 'css/themes/layout/header/base/'.config('layout.header.self.theme').'.css';
-        $themes[] = 'css/themes/layout/header/menu/'.config('layout.header.menu.desktop.submenu.theme').'.css';
-        $themes[] = 'css/themes/layout/aside/'.config('layout.aside.self.theme').'.css';
+        $themes[] = 'css/themes/layout/header/base/' . config('layout.header.self.theme') . '.css';
+        $themes[] = 'css/themes/layout/header/menu/' . config('layout.header.menu.desktop.submenu.theme') . '.css';
+        $themes[] = 'css/themes/layout/aside/' . config('layout.aside.self.theme') . '.css';
 
         if (config('layout.aside.self.display')) {
-            $themes[] = 'css/themes/layout/brand/'.config('layout.brand.self.theme').'.css';
+            $themes[] = 'css/themes/layout/brand/' . config('layout.brand.self.theme') . '.css';
         } else {
-            $themes[] = 'css/themes/layout/brand/'.config('layout.header.self.theme').'.css';
+            $themes[] = 'css/themes/layout/brand/' . config('layout.header.self.theme') . '.css';
         }
 
         return $themes;
@@ -199,7 +196,7 @@ class Metronic
             $cls = array_merge($cls, explode(' ', $class));
         }
 
-        echo '<span class="'.implode(' ', $cls).'"><!--begin::Svg Icon | path:'.$filepath.'-->'.$string.'<!--end::Svg Icon--></span>';
+        echo '<span class="' . implode(' ', $cls) . '"><!--begin::Svg Icon | path:' . $filepath . '-->' . $string . '<!--end::Svg Icon--></span>';
     }
 
     /**

@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.22
  */
 
@@ -36,7 +35,7 @@ class RegisterRequest extends FormRequest
             'password.required' => 'Şifrenizi giriniz.',
             'password.min' => 'Şifreniz 8 karakterden uzun olmalıdır.',
             'name.required' => 'Lütfen adınızı yazınız.',
-            'name.min' => 'Adınız 3 karakterden uzun olmalıdır.'
+            'name.min' => 'Adınız 3 karakterden uzun olmalıdır.',
         ];
     }
 }

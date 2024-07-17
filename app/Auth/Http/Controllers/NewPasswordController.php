@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.22
  */
 
@@ -30,7 +29,7 @@ class NewPasswordController extends \Illuminate\Routing\Controller
 
         $user = User::where('phone', $request->phone)->first();
 
-        if (null != $user and Hash::check($request->code, $user->remember_token)) {
+        if ($user != null and Hash::check($request->code, $user->remember_token)) {
             activityRecord([
                 'description' => 'Kullanıcı şifresini değiştirdi.',
                 'subject_type' => 'App\Models\User',
@@ -45,7 +44,7 @@ class NewPasswordController extends \Illuminate\Routing\Controller
             ]);
 
             return redirect()->route('dashboard')->with(['message' => 'Şifreniz sıfırlandı. Şimdi giriş yapabilirsiniz.']);
-        } elseif (null != $user and $user->remember_expires_at > now()) {
+        } elseif ($user != null and $user->remember_expires_at > now()) {
             return view('kobiyim.auth.reset-password')->with(['status' => 'Geçersiz kod girişi yapıldı. Lütfen tekrar deneyiniz.']);
         } else {
             return redirect()->route('password.reset')->with(['status' => 'Lütfen bilgilerinizi tekrar kontrol ediniz.']);

@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.22
  */
 
@@ -39,7 +38,7 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
                 'description' => 'Kullanıcı sisteme giriş yaptı.',
                 'subject_type'  => 'Session',
                 'subject_id'    => Auth::id(),
-                'causer_id'   => Auth::id()
+                'causer_id'   => Auth::id(),
             ]);
 
             return redirect()->intended('/');
@@ -51,7 +50,7 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
         return (new Pipeline(app()))->send($request)->through(array_filter([
             EnsureLoginIsNotThrottled::class,
             AttemptToAuthenticate::class,
-            PrepareAuthenticatedSession::class
+            PrepareAuthenticatedSession::class,
         ]));
     }
 

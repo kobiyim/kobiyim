@@ -1,19 +1,18 @@
 <?php
 
 /**
- * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ * Kobiyim.
+ *
  * @since v1.0.20
  */
 
 namespace App\Http\Controllers\Kobiyim;
 
+use App\Models\Permission;
+use App\Models\QueryLog;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use App\Models\Permission;
-use App\Models\User;
-use App\Models\QueryLog;
 
 class KobiyimModalsController extends Controller
 {
@@ -24,7 +23,7 @@ class KobiyimModalsController extends Controller
             return $this->{$request->key}($request);
         }
 
-        return throw new \Exception('Modal Anahtarı Bulunamadı'.$request->key, 1);
+        return throw new \Exception('Modal Anahtarı Bulunamadı' . $request->key, 1);
     }
 
     public function createUser(Request $request)

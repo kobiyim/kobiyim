@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.0
  */
 
@@ -15,6 +14,6 @@ trait PasswordValidationRules
 {
     protected function passwordRules()
     {
-        return ['required', 'string', new Password];
+        return ['required', 'string', new Password()];
     }
 }

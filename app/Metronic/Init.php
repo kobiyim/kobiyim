@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.0
  */
 
@@ -56,7 +55,7 @@ class Init
 
         // Menu
         if (config('layout.header.menu.self.display')) {
-            Metronic::addClass('header_menu', 'header-menu-layout-'.config('layout.header.menu.self.layout'));
+            Metronic::addClass('header_menu', 'header-menu-layout-' . config('layout.header.menu.self.layout'));
 
             if (config('layout.header.menu.self.root-arrow')) {
                 Metronic::addClass('header_menu', 'header-menu-root-arrow');
@@ -90,7 +89,7 @@ class Init
         }
 
         if ($subheader_style) {
-            Metronic::addClass('subheader', 'subheader-'.$subheader_style);
+            Metronic::addClass('subheader', 'subheader-' . $subheader_style);
         }
 
         if (config('layout.subheader.width') == 'fluid') {

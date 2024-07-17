@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.0
  */
 
@@ -49,6 +48,6 @@ class LoginRateLimiter
 
     protected function throttleKey(Request $request)
     {
-        return Str::lower($request->input('phone', '')).'|'.$request->ip();
+        return Str::lower($request->input('phone', '')) . '|' . $request->ip();
     }
 }

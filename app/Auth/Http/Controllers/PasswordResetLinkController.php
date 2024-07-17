@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.22
  */
 
@@ -30,7 +29,7 @@ class PasswordResetLinkController extends \Illuminate\Routing\Controller
 
         $code = rand(100000, 999999);
 
-        if (null != $user) {
+        if ($user != null) {
             activityRecord([
                 'description' => 'Kullanıcı yeni şifre talebinde bulundu.',
                 'subject_type' => 'App\Models\User',

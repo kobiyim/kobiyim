@@ -2,8 +2,7 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ *
  * @since v1.0.22
  */
 
@@ -16,8 +15,6 @@ class AliasServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register(): void
     {
@@ -29,5 +26,4 @@ class AliasServiceProvider extends ServiceProvider
         $loader->alias('Html', \Spatie\Html\Facades\Html::class);
 
     }
-
 }
