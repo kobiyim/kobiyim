@@ -6,7 +6,7 @@
  * @since v1.0.18
  */
 --}}
-<div class="modal fade" id="createUser" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+<div class="modal fade" id="createUser" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -20,7 +20,7 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Adı:</label>
 						<div class="col-lg-9">
-							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
+							{!! html()->text(true, null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
@@ -34,14 +34,14 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Telefon Numarası:</label>
 						<div class="col-lg-9">
-							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' ]) !!}
+							{!! html()->text(true, null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Türü:</label>
 						<div class="col-lg-9">
-							{!! html()->select('', config('kobiyim.user_types'), null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' ]) !!}
+							{!! html()->select(true, config('kobiyim.user_types'), null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>

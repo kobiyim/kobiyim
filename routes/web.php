@@ -4,17 +4,21 @@ use Illuminate\Support\Facades\Route;
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
- * @since v1.0.22
+ *
+ * @since v1.0.23
  */
+use Illuminate\Support\Facades\Http;
 
-Route::group([
-    'middleware'    => [ 'auth' ]
-], function() {
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
-    Route::get('/', 'PagesController@dashboard')->name('dashboard');
+    Route::group([
+        'middleware' => ['auth'],
+    ], function () {
 
-    Route::post('modals', 'ModalsController@__invoke')->name('modals');
+        Route::get('/', 'PagesController@dashboard')->name('dashboard');
+
+        Route::post('modals', 'ModalsController@__invoke')->name('modals');
+
+    });
 
 });

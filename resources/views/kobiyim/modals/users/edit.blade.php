@@ -6,7 +6,7 @@
  * @since v1.0.18
  */
 --}}
-<div class="modal fade" id="editUser" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -20,7 +20,7 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Adı:</label>
 						<div class="col-lg-9">
-							{!! html()->text('', $get->name)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' . $get->id ]) !!}
+							{!! html()->text(true, $get->name)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
@@ -34,14 +34,14 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Telefon Numarası:</label>
 						<div class="col-lg-9">
-							{!! html()->text('', $get->phone)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' . $get->id ]) !!}
+							{!! html()->text(true, $get->phone)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Türü:</label>
 						<div class="col-lg-9">
-							{!! html()->select('', config('kobiyim.user_types'), $get->type)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' . $get->id ]) !!}
+							{!! html()->select(true, config('kobiyim.user_types'), $get->type)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' . $get->id ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>

@@ -20,14 +20,14 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">İzin:</label>
 						<div class="col-lg-9">
-							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
+							{!! html()->text(true, null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'name' ]) !!}
 							<div class="invalid-feedback" id="nameError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Anahtarı:</label>
 						<div class="col-lg-9">
-							{!! html()->text('', null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'key' ]) !!}
+							{!! html()->text(true, null)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'key' ]) !!}
 							<div class="invalid-feedback" id="keyError"></div>
 						</div>
 					</div>

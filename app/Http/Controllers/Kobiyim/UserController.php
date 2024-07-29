@@ -1,9 +1,8 @@
 <?php
 
 /**
- * Kobiyim
- * 
- * @package kobiyim/kobiyim
+ * Kobiyim.
+ *
  * @since v1.0.18
  */
 
@@ -44,47 +43,47 @@ class UserController extends Controller
     {
         $validator = Validator::make(
             [
-                'name'     => $request->name,
-                'phone'    => $request->phone,
+                'name' => $request->name,
+                'phone' => $request->phone,
                 'password' => $request->password,
-                'type'     => $request->type
+                'type' => $request->type,
             ],
             [
-                'name'     => 'required|min:3|max:128',
-                'phone'    => 'required_without:email|nullable',
+                'name' => 'required|min:3|max:128',
+                'phone' => 'required|unique:users,phone',
                 'password' => 'required|min:8',
-                'type'     => 'required'
+                'type' => 'required',
             ],
             [
                 'name.required' => 'Stok adı girmelisiniz.',
-                'name.min'      => 'Stok adı en az 3 karakter olmalıdır.',
-                'name.max'      => 'Stok adı maksimum 128 karakter olabilir.',
-            ]
+                'name.min' => 'Stok adı en az 3 karakter olmalıdır.',
+                'name.max' => 'Stok adı maksimum 128 karakter olabilir.',
+            ],
         );
 
         if ($validator->passes()) {
             $created = User::create([
-                'name'      => $request->name,
-                'password'  => Hash::make($request->password),
-                'phone'     => $request->phone,
+                'name' => $request->name,
+                'password' => Hash::make($request->password),
+                'phone' => $request->phone,
                 'is_active' => 1,
-                'type'      => $request->type,
+                'type' => $request->type,
             ]);
 
             activityRecord([
                 'subject_type' => 'App\Models\User',
-                'subject_id'   => $created->id,
-                'description'  => 'Kullanıcı eklendi.',
+                'subject_id' => $created->id,
+                'description' => 'Kullanıcı eklendi.',
             ]);
 
             return response()->json([
-                'status'  => 'success',
+                'status' => 'success',
                 'message' => 'Kullanıcı aktif olarak eklendi.',
             ]);
         }
 
         return response()->json([
-            'status'   => 'error',
+            'status' => 'error',
             'messages' => $this->arrangeErrors($validator->errors()->toArray()),
         ]);
     }
@@ -93,32 +92,32 @@ class UserController extends Controller
     {
         $validator = Validator::make(
             [
-                'name'  => $request->name,
+                'name' => $request->name,
                 'phone' => $request->phone,
-                'type'  => $request->type
+                'type' => $request->type,
             ],
             [
-                'name'  => 'required|min:3|max:128',
+                'name' => 'required|min:3|max:128',
                 'phone' => 'required_without:email|nullable',
             ],
             [
                 'name.required' => 'Stok adı girmelisiniz.',
-                'name.min'      => 'Stok adı en az 3 karakter olmalıdır.',
-                'name.max'      => 'Stok adı maksimum 128 karakter olabilir.',
-            ]
+                'name.min' => 'Stok adı en az 3 karakter olmalıdır.',
+                'name.max' => 'Stok adı maksimum 128 karakter olabilir.',
+            ],
         );
 
         if ($validator->passes()) {
             User::find($id)->update([
-                'name'  => $request->name,
+                'name' => $request->name,
                 'phone' => $request->phone,
-                'type'  => $request->type,
+                'type' => $request->type,
             ]);
 
             activityRecord([
                 'subject_type' => 'App\Models\User',
-                'subject_id'   => $id,
-                'description'  => 'Kullanıcı güncellendi.',
+                'subject_id' => $id,
+                'description' => 'Kullanıcı güncellendi.',
             ]);
 
             if ($request->has('password')) {
@@ -126,13 +125,13 @@ class UserController extends Controller
             }
 
             return response()->json([
-                'status'  => 'success',
+                'status' => 'success',
                 'message' => 'Kullanıcı düzenlendi.',
             ]);
         }
 
         return response()->json([
-            'status'   => 'error',
+            'status' => 'error',
             'messages' => $this->arrangeErrors($validator->errors()->toArray()),
         ]);
     }
@@ -147,22 +146,22 @@ class UserController extends Controller
 
         activityRecord([
             'subject_type' => 'App\Models\User',
-            'subject_id'   => $id,
-            'description'  => 'Kullanıcı durumu değiştirildi.',
+            'subject_id' => $id,
+            'description' => 'Kullanıcı durumu değiştirildi.',
         ]);
 
         return response()->json([
-            'status'  => 'success',
-            'message' => 'Kullanıcı aktifliği '.(($get['is_active'] == 1) ? 'aktif' : 'pasif').' olarak değiştirildi.',
+            'status' => 'success',
+            'message' => 'Kullanıcı aktifliği ' . (($get['is_active'] == 1) ? 'aktif' : 'pasif') . ' olarak değiştirildi.',
         ]);
     }
 
     public function permission(Request $request, $id)
     {
         $data = [
-            'all'  => Permission::all(),
+            'all' => Permission::all(),
             'user' => UserPermission::where('user_id', $id)->get()->groupBy('permission_id')->toArray(),
-            'get'  => User::find($id),
+            'get' => User::find($id),
         ];
 
         return view('kobiyim.system.users.permission', $data);
@@ -175,7 +174,7 @@ class UserController extends Controller
         foreach ($request->all() as $key => $value) {
             if (Str::contains($key, 'perm') and $value == true) {
                 UserPermission::create([
-                    'user_id'       => $id,
+                    'user_id' => $id,
                     'permission_id' => str_replace('perm', '', $key),
                 ]);
             }
@@ -183,8 +182,8 @@ class UserController extends Controller
 
         activityRecord([
             'subject_type' => 'App\Models\Production',
-            'subject_id'   => $id,
-            'description'  => 'Kullanıcı izinleri güncellendi.',
+            'subject_id' => $id,
+            'description' => 'Kullanıcı izinleri güncellendi.',
         ]);
 
         return redirect()->route('user.index');

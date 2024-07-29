@@ -2,16 +2,15 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
- * @since v1.0.20
+ *
+ * @since v1.0.22
  */
 
 use Illuminate\Support\Facades\Route;
 
 Route::group([
     'middleware' => ['auth'],
-    'namespace' => '\App\Http\Controllers\Kobiyim'
+    'namespace' => '\App\Http\Controllers\Kobiyim',
 ], function () {
     Route::get('kobiyim', 'SystemController@kobiyim')->name('kobiyim');
 
@@ -30,6 +29,13 @@ Route::group([
         ], function () {
             Route::get('/', 'QueryLogController@index')->name('querylog');
             Route::get('json', 'QueryLogController@json')->name('querylog.json');
+        });
+
+        Route::group([
+            'prefix' => 'backup',
+        ], function () {
+            Route::get('/', 'BackupController@index')->name('backup');
+            Route::get('json', 'BackupController@json')->name('backup.json');
         });
 
         Route::get('user/json', 'UserController@json')->name('user.json');

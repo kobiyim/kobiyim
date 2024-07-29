@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Kobiyim
- * 
- * @package kobiyim/kobiyim
- * @since v1.0.19
+ * Kobiyim.
+ *
+ * @since v1.0.23
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -22,7 +21,7 @@ class ActivityController extends Controller
 
     public function json(Request $request)
     {
-        $model = ActivityLog::query();
+        $model = ActivityLog::orderBy('created_at', 'desc');
 
         return DataTables::eloquent($model)
             ->editColumn('created_at', function ($model) {
