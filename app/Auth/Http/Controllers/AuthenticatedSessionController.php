@@ -69,6 +69,6 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->intended('/');
+        return redirect()->route('login')->with(['message' => 'Çıkış işleminiz gerçekleşti. İyi günler dileriz.']);
     }
 }

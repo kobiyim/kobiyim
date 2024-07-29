@@ -26,11 +26,7 @@ class LockoutResponse implements Responsable
     {
         return with($this->limiter->availableIn($request), function ($seconds) {
             throw ValidationException::withMessages([
-                'phone' => [
-                    trans("Çok fazla giriş denemesi yaptınız.\nGiriş denemeleriniz engellendi. :seconds", [
-                        'seconds' => $seconds,
-                    ]),
-                ],
+                'phone' => 'Çok fazla giriş denemesi yaptınız.\nGiriş denemeleriniz engellendi. ' . $seconds,
             ])->status(Response::HTTP_TOO_MANY_REQUESTS);
         });
     }
