@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @since v1.0.22
+ * @version v2.0.0
  */
 
 use Illuminate\Support\Facades\Route;
@@ -88,10 +88,6 @@ Route::group(['namespace' => '\App\Auth\Http\Controllers'], function () {
     Route::get('reset-password', 'NewPasswordController@create')
         ->middleware('guest')
         ->name('password.reset');
-
-    Route::post('forgot-password', 'PasswordResetLinkController@store')
-        ->middleware('guest')
-        ->name('password.send');
 
     Route::post('reset-password', 'NewPasswordController@store')
         ->middleware('guest')

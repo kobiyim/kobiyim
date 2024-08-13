@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Kobiyim.
+ * Kobiyim
  *
- * @since v1.0.23
+ * @version v2.0.0
  */
 
 namespace App\Console\Commands;
@@ -25,31 +25,55 @@ class KobiyimFileBackup extends Command
 
     public function handle()
     {
-        $zip = new \ZipArchive();
 
-        $filename = now()->format('Ymd-Hi');
 
-        if ($zip->open(storage_path('backup/' . $filename . '.zip'), \ZipArchive::CREATE) == true) {
-            $dirsToZip = env('BACKUPFILES');
+        $dirsToZip = env('BACKUPFILES');
 
-            foreach (explode(';', $dirsToZip) as $dir) {
-                $this->info($dir . ' için sıkıştırma başlatılıyor.');
-                foreach (Storage::allFiles($dir) as $e) {
-                    $zip->addFile($e, basename($e));
+        foreach (explode(';', $dirsToZip) as $dir) {
+
+            $zip = new \ZipArchive();
+
+            $input_folder = realpath(base_path($dir));
+
+            $addDirDo = static function($input_folder, $name) use ($zip, &$addDirDo ) {
+                $name .= '/';
+                $input_folder .= '/';
+                // Read all Files in Dir
+                $dir = opendir ($input_folder);
+                while ($item = readdir($dir))    {
+                    if ($item == '.' || $item == '..') continue;
+                    $itemPath = $input_folder . $item;
+                    if (filetype($itemPath) == 'dir') {
+                        $zip->addEmptyDir($name . $item);
+                        $addDirDo($input_folder . $item, $name . $item);
+                    } else {
+                        $zip->addFile($itemPath, $name . $item);
+                    }
+                }
+            };
+
+            if($input_folder !== false) {
+                $res = $zip->open(storage_path('app/backup/' . rand(10000,9999999) . '.zip'), \ZipArchive::CREATE);
+                if($res === true)   {
+                    $zip->addEmptyDir(basename($input_folder));
+                    $addDirDo($input_folder, basename($input_folder));
+
+                    Backup::create([
+                        'filename' => $filename . '.zip',
+                        'dir' => storage_path('app/backup/' . $filename . '.zip'),
+                        'type' => 'zip',
+                        'size' =>0,
+                        'is_loaded' => 0,
+                    ]);
+
+                    $zip->close(); 
+                } else {
+                    exit ('Could not create a zip archive, migth be write permissions or other reason.');
                 }
             }
 
-            $zip->close();
-
-            Backup::create([
-                'filename' => $filename . '.zip',
-                'dir' => storage_path('backup/' . $filename . '.zip'),
-                'type' => 'zip',
-                'size' => Storage::size(storage_path('backup/' . $filename . '.zip')),
-                'is_loaded' => 0,
-            ]);
-
-            $this->info('Sıkıştırma işlemi tamamlandı yedek dosyası oluşturuldu.');
         }
+
+
     }
 }

@@ -2,8 +2,7 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.18
+ * @version v2.0.0
  */
 --}}
 <script type="text/javascript">
@@ -63,6 +62,11 @@
 			type	: $("#type").val()
 		});
 
+		$("#name").removeClass('is-invalid');
+		$("#phone").removeClass('is-invalid');
+		$("#password").removeClass('is-invalid');
+		$("#type").removeClass('is-invalid');
+
 		if(rsp.status == 'error') {
 			var i;
 			for (i = 0; i < rsp["messages"].length; i++) {
@@ -88,6 +92,11 @@
 			password : $("#password" + id).val(),
 			type	: $("#type" + id).val()
 		});
+
+		$("#name").removeClass('is-invalid');
+		$("#phone").removeClass('is-invalid');
+		$("#password").removeClass('is-invalid');
+		$("#type").removeClass('is-invalid');
 
 		if(rsp.status == 'error') {
 			var i;

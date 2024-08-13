@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @since v1.0.22
+ * @version v2.0.0
  */
 
 namespace App\Auth\Services;
@@ -44,7 +44,7 @@ class AttemptToAuthenticate
         $this->limiter->increment($request);
 
         throw ValidationException::withMessages([
-            'message' => ['Sisteme erişmekte bir sorun yaşanıyor.</br>Şifrenizi kontrol ediniz veya sistem yöneticisine danışınız.'],
+            'message' => ['Giriş bilgilernizi kontrol ediniz veya sistem yöneticisine danışınız.'],
         ]);
     }
 }

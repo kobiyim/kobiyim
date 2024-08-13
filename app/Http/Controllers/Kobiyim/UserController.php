@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Kobiyim.
+ * Kobiyim
  *
- * @since v1.0.18
+ * @version v2.0.0
  */
 
 namespace App\Http\Controllers\Kobiyim;

@@ -1,9 +1,9 @@
 {{--
-| 
-| Kobiyim
-|
-| @version v1.0.0
-|
+ /**
+ * Kobiyim
+ * 
+ * @version v2.0.0
+ */
 --}}
 <div class="quick-search-result">
 	{{-- Message --}}

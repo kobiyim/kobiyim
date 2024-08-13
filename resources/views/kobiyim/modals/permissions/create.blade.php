@@ -2,8 +2,7 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.22
+ * @version v2.0.0
  */
 --}}
 <div class="modal fade" id="createPermission" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">

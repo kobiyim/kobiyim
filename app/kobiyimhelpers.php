@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Kobiyim.
+ * Kobiyim
  *
- * @since v1.0.24
+ * @version v2.0.0
  */
 
 use App\Models\ActivityLog;

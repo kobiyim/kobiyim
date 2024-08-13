@@ -2,8 +2,7 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.19
+ * @version v2.0.0
  */
 --}}
 <script type="text/javascript">
@@ -21,9 +20,9 @@
 			url: '{{ route('activity.json') }}'
 		},
 		columns: [
-			{data: 'description', name: 'description'},
+			{data: 'created_at', name: 'created_at'},
 			{data: 'causer_id', name: 'causer_id'},
-			{data: 'created_at', name: 'created_at'}
+			{data: 'description', name: 'description'}			
 		],
 		language: {
 			"url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"

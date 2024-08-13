@@ -2,8 +2,7 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v2.0.0
  */
 --}}
 {{-- Page Loader Types --}}

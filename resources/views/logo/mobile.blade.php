@@ -2,8 +2,7 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.14
+ * @version v2.0.0
  */
 --}}
 <div class="mobile-logo">

@@ -1,9 +1,9 @@
 {{--
-| 
-| Kobiyim
-|
-| @version v1.0.0
-|
+ /**
+ * Kobiyim
+ * 
+ * @version v2.0.0
+ */
 --}}
 {{-- Scrolltop --}}
 <div id="kt_scrolltop" class="scrolltop">

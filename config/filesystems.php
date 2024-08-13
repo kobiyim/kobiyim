@@ -2,9 +2,8 @@
 
 /**
  * Kobiyim
- * 
- * @package kobiyim/kobiyim
- * @since v1.0.22
+ *
+ * @version v2.0.0
  */
 
 return [
