@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v2.0.0
+ * @version v2.0.3
  */
 
 namespace App\Auth\Http\Controllers;
@@ -69,6 +69,6 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with(['message' => 'Çıkış işleminiz gerçekleşti. İyi günler dileriz.']);
+        return redirect()->route('login')->with('message', 'Çıkış işleminiz gerçekleşti. İyi günler dileriz.');
     }
 }

@@ -3,7 +3,7 @@
  * Kobiyim
  * 
  * @package kobiyim/kobiyim
- * @since v2.0.1
+ * @since v2.0.3
  */
 --}}
 @extends('kobiyim.theme.auth')
@@ -15,8 +15,13 @@
 	<div class="login-signin">
 		@if ($errors->any())
 			<div class="alert alert-danger">
-				<span>{!! implode(array_values($errors->all()), ' - ') !!}</span>
+				<span>{!! implode('</br>', array_values($errors->all())) !!}</span>
 			</div>
+		@endif
+		@if (session('message'))
+		    <div class="alert alert-success">
+		        {{ session('message') }}
+		    </div>
 		@endif
 		{{ html()->form()->route('login')->class('form')->open() }}
 			<div class="form-group mb-5">
