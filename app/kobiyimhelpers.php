@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v2.0.0
+ * @version v2.0.2
  */
 
 use App\Models\ActivityLog;
@@ -151,87 +151,89 @@ if (! function_exists('systemMenu')) {
     function systemMenu()
     {
         return [
-            'title' => 'Sistem',
-            'root' => true,
-            'toggle' => 'click',
-            'can' => 'system-menusu',
-            'submenu' => [
-                'type' => 'classic',
-                'alignment' => 'left',
-                'items' => [
-                    [
-                        'title' => 'Aktiviteler',
-                        'root' => true,
-                        'page' => 'system/activity',
-                        'whereActive' => [
+            [
+                    'title' => 'Sistem',
+                    'root' => true,
+                    'toggle' => 'click',
+                    'can' => 'system-menusu',
+                    'submenu' => [
+                        'type' => 'classic',
+                        'alignment' => 'left',
+                        'items' => [
                             [
-                                'segment' => 1,
-                                'value' => 'system',
+                                'title' => 'Aktiviteler',
+                                'root' => true,
+                                'page' => 'system/activity',
+                                'whereActive' => [
+                                    [
+                                        'segment' => 1,
+                                        'value' => 'system',
+                                    ],
+                                    [
+                                        'segment' => 2,
+                                        'value' => 'activity',
+                                    ],
+                                ],
                             ],
                             [
-                                'segment' => 2,
-                                'value' => 'activity',
+                                'title' => 'Sorgu Takibi',
+                                'page' => 'system/querylogs',
+                                'whereActive' => [
+                                    [
+                                        'segment' => 1,
+                                        'value' => 'system',
+                                    ],
+                                    [
+                                        'segment' => 2,
+                                        'value' => 'querylogs',
+                                    ],
+                                ],
+                            ],
+                            [
+                                'title' => 'Kullanıcılar',
+                                'page' => 'system/user',
+                                'whereActive' => [
+                                    [
+                                        'segment' => 1,
+                                        'value' => 'system',
+                                    ],
+                                    [
+                                        'segment' => 2,
+                                        'value' => 'user',
+                                    ],
+                                ],
+                            ],
+                            [
+                                'title' => 'İzinler',
+                                'page' => 'system/permission',
+                                'whereActive' => [
+                                    [
+                                        'segment' => 1,
+                                        'value' => 'system',
+                                    ],
+                                    [
+                                        'segment' => 2,
+                                        'value' => 'permission',
+                                    ],  
+                                ],
+                            ],
+                            [
+                                'title' => 'Yedeklemeler',
+                                'page' => 'system/backup',
+                                'whereActive' => [
+                                    [
+                                        'segment' => 1,
+                                        'value' => 'system',
+                                    ],
+                                    [
+                                        'segment' => 2,
+                                        'value' => 'backup',
+                                    ],  
+                                ],
                             ],
                         ],
                     ],
-                    [
-                        'title' => 'Sorgu Takibi',
-                        'page' => 'system/querylogs',
-                        'whereActive' => [
-                            [
-                                'segment' => 1,
-                                'value' => 'system',
-                            ],
-                            [
-                                'segment' => 2,
-                                'value' => 'querylogs',
-                            ],
-                        ],
-                    ],
-                    [
-                        'title' => 'Kullanıcılar',
-                        'page' => 'system/user',
-                        'whereActive' => [
-                            [
-                                'segment' => 1,
-                                'value' => 'system',
-                            ],
-                            [
-                                'segment' => 2,
-                                'value' => 'user',
-                            ],
-                        ],
-                    ],
-                    [
-                        'title' => 'İzinler',
-                        'page' => 'system/permission',
-                        'whereActive' => [
-                            [
-                                'segment' => 1,
-                                'value' => 'system',
-                            ],
-                            [
-                                'segment' => 2,
-                                'value' => 'permission',
-                            ],  
-                        ],
-                    ],
-                    [
-                        'title' => 'Yedeklemeler',
-                        'page' => 'system/backup',
-                        'whereActive' => [
-                            [
-                                'segment' => 1,
-                                'value' => 'system',
-                            ],
-                            [
-                                'segment' => 2,
-                                'value' => 'backup',
-                            ],  
-                        ],
-                    ],
-                ],
-            ],
+                ]
         ];
     }
 }
