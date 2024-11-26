@@ -30,6 +30,9 @@ class Json
                     return ($model->is_active == '0') ? 'background-color: rgb(255,0,0,0.1);' : 'background-color: rgb(0,255,0,0.1);';
                 },
             ])
+            ->editColumn('type', function ($model) {
+                return ($model->type == 'user') ? 'Kullanıcı' : 'Yönetici';
+            })
             ->rawColumns(['islemler'])
             ->toJson();
     }

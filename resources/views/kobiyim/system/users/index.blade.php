@@ -25,6 +25,7 @@
 					<tr>
 						<th>Kullanıcı Adı</th>
 						<th>Telefon</th>
+						<th>Türü</th>
 						<th class="text-center" width="10%">İşlemler</th>
 					</tr>
 				</thead>

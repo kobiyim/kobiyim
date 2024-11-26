@@ -21,6 +21,7 @@
 		columns: [
 			{data: 'name', name: 'name'},
 			{data: 'phone', name: 'phone'},
+			{data: 'type', name: 'type'},
 			{data: 'islemler', name: 'islemler', sortable: false, className: 'text-center'}
 		],
 		language: {
