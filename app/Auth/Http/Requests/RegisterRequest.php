@@ -36,6 +36,8 @@ class RegisterRequest extends FormRequest
             'password.min' => 'Şifreniz 8 karakterden uzun olmalıdır.',
             'name.required' => 'Lütfen adınızı yazınız.',
             'name.min' => 'Adınız 3 karakterden uzun olmalıdır.',
+            'name.max' => 'Adınız maksimum 255 karakter olmaldır.',
+            'password.confirmed' => 'Şifre doğrulamanız uyumsuz.',
         ];
     }
 }

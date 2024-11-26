@@ -30,8 +30,7 @@ class LoginRequest extends FormRequest
         return [
             'phone.required'    => 'Sisteme giriş için telefon numaranız gerekli.',
             'phone.size' => 'Telefon numaranızı tam giriniz.',
-            'password.required' => 'Şifrenizi giriniz.',
-            'passord.string' => 'Şifrenizi formata uygun giriniz.',
+            'password.required' => 'Şifrenizi giriniz.'
         ];
     }
 }
