@@ -24,7 +24,7 @@ class SavePermission
         UserPermission::where('user_id', $id)->delete();
 
         foreach ($request->all() as $key => $value) {
-            if (Str::contains($key, 'perm') and $value == true) {
+            if (Str::contains($key, 'perm') and $value == '1') {
                 UserPermission::create([
                     'user_id' => $id,
                     'permission_id' => str_replace('perm', '', $key),

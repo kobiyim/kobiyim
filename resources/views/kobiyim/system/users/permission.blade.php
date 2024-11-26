@@ -14,22 +14,22 @@
 				<div class="card-header">
 					<h3 class="card-title">{{ $get->name }} için İzinler</h3>
 				</div>
-				{{ Form::open([ 'route' => [ 'user.permission', $get->id ], 'class' => 'form' ]) }}
+				{{ html()->form()->open([ 'route' => [ 'user.permission', $get->id ], 'class' => 'form' ]) }}
 					<div class="card-body">
 						<div class="form-group">
 							<div class="checkbox-list">
 							@foreach($all as $e)
 								<label class="checkbox">
-								{{ Form::checkbox('perm' . $e->id, 1, ((array_key_exists($e->id, $user)) ? true : false)) }}
+								{{ html()->checkbox('perm' . $e->id)->checked((array_key_exists($e->id, $user)) ? true : false)  }}
 								<span></span>{{ $e->name }}</label>
 							@endforeach
 							</div>
 						</div>
 					</div>
 					<div class="card-footer">
-						{{ Form::submit('Kaydet', [ 'class' => 'btn btn-primary']) }}
+						{{ html()->submit('Kaydet')->attributes([ 'class' => 'btn btn-primary']) }}
 					</div>
-				{{ Form::close() }}
+				{{ html()->form()->close() }}
 			</div>
 		</div>
 	</div>
