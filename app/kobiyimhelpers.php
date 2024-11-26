@@ -147,6 +147,22 @@ if (! function_exists('can')) {
     }
 }
 
+if (! function_exists('arrangeErrors')) {
+    function arrangeErrors($errors)
+    {
+        $data = [];
+
+        foreach ($errors as $key => $errorDetails) {
+            $data[] = [
+                'key'     => $key,
+                'message' => implode(' ', $errorDetails),
+            ];
+        }
+
+        return $data;
+    }
+}
+
 if (! function_exists('systemMenu')) {
     function systemMenu()
     {

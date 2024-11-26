@@ -63,7 +63,7 @@ class Update
 
         return response()->json([
             'status' => 'error',
-            'messages' => $this->arrangeErrors($validator->errors()->toArray()),
+            'messages' => arrangeErrors($validator->errors()->toArray()),
         ]);
     }
 }
