@@ -8,9 +8,8 @@
 
 namespace App\Http\Controllers\Kobiyim;
 
-use App\Models\ActivityLog;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
+use App\Http\Services\Kobiyim\Activity\Json;
 
 class ActivityController extends Controller
 {
@@ -21,15 +20,6 @@ class ActivityController extends Controller
 
     public function json(Request $request)
     {
-        $model = ActivityLog::orderBy('created_at', 'desc');
-
-        return DataTables::eloquent($model)
-            ->editColumn('created_at', function ($model) {
-                return $model->created_at->format('d.m.Y H:i');
-            })
-            ->editColumn('causer_id', function ($model) {
-                return ($model->causer_id != null) ? $model->getUser->name : 'Tanımsız';
-            })
-            ->toJson();
+        return (new Json())->handle($request);
     }
 }
