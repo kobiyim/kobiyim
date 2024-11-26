@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Kobiyim
- *
- * @version v2.0.3
- */
-
 namespace App\Auth\Http\Controllers;
 
 use App\Auth\Http\Requests\LoginRequest;
@@ -41,7 +35,7 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
                 'causer_id'   => Auth::id(),
             ]);
 
-            return redirect()->intended('/');
+            return redirect()->route('dashboard');
         });
     }
 
