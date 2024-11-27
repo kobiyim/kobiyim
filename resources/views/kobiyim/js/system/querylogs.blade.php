@@ -20,7 +20,7 @@
 			url: '{{ route('querylog.json') }}'
 		},
 		columns: [
-			{data: 'id', name: 'id'},
+			{data: 'created_at', name: 'created_at'},
 			{data: 'type', name: 'type'},
 			{data: 'causer_id', name: 'causer_id'},
 			{data: 'subject_type', name: 'subject_type'},
