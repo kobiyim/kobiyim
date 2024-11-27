@@ -41,7 +41,7 @@
 		@yield('styles')
 	</head>
 
-	<body {{ Metronic::printAttrs('body') }} {{ Metronic::printClasses('body') }}>
+	<body {{ Metronic::printAttrs('body') }} {{ Metronic::printClasses('body') }} data-scrolltop="off">
 
 		@if (config('layout.page-loader.type') != '')
 			@include('kobiyim.theme.partials._page-loader')
