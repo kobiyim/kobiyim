@@ -24,14 +24,18 @@ class KobiyimToCloud extends Command
 
     public function handle()
     {
-        $files = Backup::where('is_loaded', 0)->all();
+        $this->info('Buluta aktarım başlatıldı.');
+
+        $files = Backup::where('is_loaded', 0)->get();
 
         foreach ($files as $file) {
-            \Storage::disk('digitalocean')->put(env('KOBIYIMUSERNAME') . '/' . $filename . '.sql', \File::get(storage_path('app/backup/' . $filename . '.sql')));
+            \Storage::disk('digitalocean')->put(env('KOBIYIM_USERNAME') . '/' . $file->type . '/' . $file->filename, \File::get($file->dir));
 
             $file->update([
                 'is_loaded' => 1,
             ]);
         }
+
+        $this->info('Buluta dosya aktarımları tamamlandı.');
     }
 }
