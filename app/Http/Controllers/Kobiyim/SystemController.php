@@ -20,17 +20,8 @@ class SystemController extends Controller
         $data = [
             'islemSayisi' => ActivityLog::count(),
             'kullaniciSayisi' => User::where('is_active', 1)->count(),
+            'yedeklemeBoyutu' => Backup::where('is_loaded', 1)->sum('size'),
         ];
-
-        $files = Backup::where('is_loaded', 1)->get();
-
-        $size = 0;
-
-        foreach($files as $file) {
-            $size += Storage::driver('digitalocean')->size($dir);
-        }
-
-        $data['yedeklemeBoyutu'] = $size;
 
         return view('kobiyim.system.kobiyim', $data);
     }

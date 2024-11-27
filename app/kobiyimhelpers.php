@@ -163,6 +163,17 @@ if (! function_exists('arrangeErrors')) {
     }
 }
 
+if (! function_exists('formatBytes')) {
+    function formatBytes($size)
+    { 
+        $base = log($size) / log(1024);
+        $suffix = array("", "KB", "MB", "GB", "TB");
+        $f_base = floor($base);
+        return round(pow(1024, $base - floor($base)), 2) . ' ' . $suffix[$f_base];
+    }
+}
+
+
 if (! function_exists('systemMenu')) {
     function systemMenu()
     {
