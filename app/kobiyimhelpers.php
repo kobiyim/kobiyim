@@ -165,7 +165,9 @@ if (! function_exists('arrangeErrors')) {
 
 if (! function_exists('formatBytes')) {
     function formatBytes($size)
-    { 
+    {
+        if($size == 0) return 0;
+
         $base = log($size) / log(1024);
         $suffix = array("", "KB", "MB", "GB", "TB");
         $f_base = floor($base);

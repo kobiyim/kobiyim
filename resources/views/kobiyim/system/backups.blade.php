@@ -11,16 +11,19 @@
 	<div class="card card-custom">
 		<div class="card-header align-items-center border-0">
 			<div class="card-title">
-				<h3 class="card-label">Sistem Hareketleri</h3>
+				<h3 class="card-label">Yedeklemeler</h3>
 			</div>
 		</div>
 		<div class="card-body pt-4 table-responsive">
 			<table class="table table-bordered table-hover" id="datatable">
 				<thead>
 					<tr>
-						<th>İşlem</th>
-						<th>Yapan Kullanıcı</th>
-						<th width="10%">Tarih</th>
+						<th>Dosya Adı</th>
+						<th>Dizin</th>
+						<th>Uzantısı</th>
+						<th>Yüklenme Durumu</th>
+						<th>Dosya Boyutu</th>
+						<th>Oluşturulma</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
@@ -31,8 +34,8 @@
 
 @section('datatable', true)
 
-@section('title', 'Sistem Hareketleri')
+@section('title', 'Yedeklemeler')
 
 @section('scripts')
-	@include('kobiyim.js.system.activities')
+	@include('kobiyim.js.system.backup')
 @endsection

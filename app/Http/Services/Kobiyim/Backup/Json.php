@@ -23,7 +23,7 @@ class Json
                 return $model->created_at->format('d.m.Y H:i');
             })
             ->editColumn('size', function ($model) {
-                return number_format($model->size/1024/1024, 2, ',', '.');
+                return formatBytes($model->size);
             })
             ->editColumn('is_loaded', function($model) {
                 return ($model->is_loaded == 1) ? 'Aktarıldı' : 'Yüklenmedi';
