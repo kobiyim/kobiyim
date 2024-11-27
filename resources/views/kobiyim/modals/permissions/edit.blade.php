@@ -5,7 +5,7 @@
  * @version v2.0.0
  */
 --}}
-<div class="modal fade" id="editPermission" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+<div class="modal fade" id="editPermission" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
