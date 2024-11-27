@@ -25,7 +25,10 @@ class KobiyimFileBackup extends Command
 
     public function handle()
     {
+        $this->info('Yedekleme başlatıldı.');
 
+        $backupFilename = now()->format('Ymd-Hi') . '.zip';
+        $backupDir = storage_path('backup/' . $backupFilename);
 
         $dirsToZip = env('BACKUPFILES');
 
@@ -53,20 +56,20 @@ class KobiyimFileBackup extends Command
             };
 
             if($input_folder !== false) {
-                $res = $zip->open(storage_path('app/backup/' . rand(10000,9999999) . '.zip'), \ZipArchive::CREATE);
+                $res = $zip->open($backupDir, \ZipArchive::CREATE);
                 if($res === true)   {
                     $zip->addEmptyDir(basename($input_folder));
                     $addDirDo($input_folder, basename($input_folder));
 
+                    $zip->close(); 
+
                     Backup::create([
-                        'filename' => $filename . '.zip',
-                        'dir' => storage_path('app/backup/' . $filename . '.zip'),
+                        'filename' => $backupFilename . '.zip',
+                        'dir' => $backupDir,
                         'type' => 'zip',
-                        'size' =>0,
+                        'size' => \File::size($backupDir),
                         'is_loaded' => 0,
                     ]);
-
-                    $zip->close(); 
                 } else {
                     exit ('Could not create a zip archive, migth be write permissions or other reason.');
                 }
@@ -74,6 +77,6 @@ class KobiyimFileBackup extends Command
 
         }
 
-
+        $this->info('Sunucu üzerine dosyaların yedeklemesi tamamlandı.');
     }
 }
