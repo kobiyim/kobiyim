@@ -25,7 +25,7 @@ if (! function_exists('activityRecord')) {
 if(! function_exists('vKobiyim')) {
     function vKobiyim()
     {
-        return connectToKobiyim('https://api.kobiyim.com/get-latest-kobiyim-framework');
+        return json_decode(connectToKobiyim('https://api.kobiyim.com/get-latest-kobiyim-framework'))->version;
     }
 }
 
@@ -74,7 +74,7 @@ if(! function_exists('kobiyimUpdates')) {
 if(! function_exists('vLaravel')) {
     function vLaravel()
     {
-        return connectToKobiyim('https://api.kobiyim.com/get-latest-laravel-framework');
+        return json_decode(connectToKobiyim('https://api.kobiyim.com/get-latest-laravel-framework'))->version;
     }
 }
 
