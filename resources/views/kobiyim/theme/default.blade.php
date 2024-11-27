@@ -69,7 +69,9 @@
 		@endif
 
 		@hasSection('admin')
-			@include('kobiyim.js.admin')
+			@if(request()->is('system/*'))
+				@include('kobiyim.js.admin')
+			@endif
 		@else
 			@include('kobiyim.js.main')
 		@endif
