@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Validation\Rule;
 
 class Update
 {
@@ -26,15 +27,18 @@ class Update
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'type' => $request->type,
+                'password' => $request->password,
             ],
             [
                 'name' => 'required|min:3|max:128',
-                'phone' => 'required_without:email|nullable',
+                'phone' => ['required_without:phone|nullable', Rule::unique('users')->ignore($id, 'id')],
+                'password' => 'nullable|min:8'
             ],
             [
-                'name.required' => 'Stok adı girmelisiniz.',
-                'name.min' => 'Stok adı en az 3 karakter olmalıdır.',
-                'name.max' => 'Stok adı maksimum 128 karakter olabilir.',
+                'name.required' => 'Kullanıcı adı girmelisiniz.',
+                'name.min' => 'Kullanıcı adı en az 3 karakter olmalıdır.',
+                'name.max' => 'Kullanıcı adı maksimum 128 karakter olabilir.',
+                'phone.unique' => 'Kullanıcı telefon numarası daha önce kullanılmış',
             ],
         );
 

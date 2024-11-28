@@ -35,9 +35,10 @@ class Store
                 'type' => 'required',
             ],
             [
-                'name.required' => 'Stok adı girmelisiniz.',
-                'name.min' => 'Stok adı en az 3 karakter olmalıdır.',
-                'name.max' => 'Stok adı maksimum 128 karakter olabilir.',
+                'name.required' => 'Kullanıcı adı girmelisiniz.',
+                'name.min' => 'Kullanıcı adı en az 3 karakter olmalıdır.',
+                'name.max' => 'Kullanıcı adı maksimum 128 karakter olabilir.',
+                'phone.unique' => 'Kullanıcı telefon numarası daha önce kullanılmış',
             ],
         );
 
