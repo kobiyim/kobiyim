@@ -28,28 +28,40 @@
 				            </td>
 				        <tr>
 				            <th scope="row">Kobiyim</th>
-				            <td class="text-center">{!! vKobiyim() !!}</td>
+				            <td class="text-center">{!! env('KOBIYIM_VERSION') !!}</td>
 				            <td class="text-center">
-				                <span class="label label-inline label-light-success font-weight-bold">
-				                    Güncel
-				                </span>
+				            	@if(env('KOBIYIM_VERSION') == vKobiyim())
+					                <span class="label label-inline label-light-success font-weight-bold">
+					                    Güncel
+					                </span>
+					            @else
+					                <span class="label label-inline label-light-danger font-weight-bold">
+					                    Bekleniyor
+					                </span>
+					            @endif
 				            </td>
 				        </tr>
 				        <tr>
 				            <th scope="row">Laravel</th>
 				            <td class="text-center">{!! vLaravel() !!}</td>
 				            <td class="text-center">
-				                <span class="label label-inline label-light-success font-weight-bold">
-				                    Güncel
-				                </span>
+				            	@if('v' . app()->version() == vLaravel())
+					                <span class="label label-inline label-light-success font-weight-bold">
+					                    Güncel
+					                </span>
+					            @else
+					                <span class="label label-inline label-light-danger font-weight-bold">
+					                    Bekleniyor
+					                </span>
+					            @endif
 				            </td>
 				        </tr>
 				        <tr>
 				            <th scope="row">PHP</th>
 				            <td class="text-center">{{ phpversion() }}</td>
 				            <td class="text-center">
-				                <span class="label label-inline label-light-danger font-weight-bold">
-				                    Bekleniyor
+				                <span class="label label-inline label-light-success font-weight-bold">
+				                    Stabil
 				                </span>
 				            </td>
 				        </tr>
