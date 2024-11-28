@@ -60,6 +60,9 @@
 			key : $("#key").val()
 		});
 
+		$("#name").removeClass('is-invalid');
+		$("#key").removeClass('is-invalid');
+
 		if(rsp.status == 'error') {
 			var i;
 			for (i = 0; i < rsp["messages"].length; i++) {

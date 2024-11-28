@@ -28,21 +28,21 @@
 						<label class="col-lg-3 col-form-label text-right">Şifresi:</label>
 						<div class="col-lg-9">
 							{!! html()->password('')->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'password' . $get->id ]) !!}
-							<div class="invalid-feedback" id="nameError"></div>
+							<div class="invalid-feedback" id="passwordError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Telefon Numarası:</label>
 						<div class="col-lg-9">
 							{!! html()->text(true, $get->phone)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'phone' . $get->id ]) !!}
-							<div class="invalid-feedback" id="nameError"></div>
+							<div class="invalid-feedback" id="phoneError"></div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label text-right">Kullanıcı Türü:</label>
 						<div class="col-lg-9">
 							{!! html()->select(true, config('kobiyim.user_types'), $get->type)->attributes([ 'class' => 'form-control', 'autocomplete' => 'off', 'tabindex' => 1, 'id' => 'type' . $get->id ]) !!}
-							<div class="invalid-feedback" id="nameError"></div>
+							<div class="invalid-feedback" id="typeError"></div>
 						</div>
 					</div>
 				</form>
