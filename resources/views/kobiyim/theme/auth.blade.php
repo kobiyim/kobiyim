@@ -2,9 +2,10 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" {{ Metronic::printAttrs('html') }} {{ Metronic::printClasses('html') }}>
 	<head>

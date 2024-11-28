@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v3.0.0
  */
 --}}
+
 {{-- Header --}}
 @if (config('layout.extras.quick-actions.dropdown.style') == 'light')
 	<div class="d-flex flex-column flex-center py-10 bg-dark-o-5 rounded-top bg-light">

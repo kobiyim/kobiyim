@@ -2,9 +2,10 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
+
 {{-- Header Mobile --}}
 <div id="kt_header_mobile" class="header-mobile {{ Metronic::printClasses('header-mobile', false) }}" {{ Metronic::printAttrs('header-mobile') }}>
 	@include('logo.mobile')

@@ -3,7 +3,8 @@
 /**
  * Kobiyim
  *
- * @version v2.0.4
+ * @version v3.0.0
+ *
  */
 
 namespace App\Models;

@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v3.0.0
  */
 --}}
+
 @php
 	$direction = config('layout.extras.notifications.offcanvas.direction', 'right');
 @endphp

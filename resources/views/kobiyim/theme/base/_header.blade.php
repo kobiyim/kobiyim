@@ -2,9 +2,10 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
+
 {{-- Header --}}
 <div id="kt_header" class="header {{ Metronic::printClasses('header', false) }}" {{ Metronic::printAttrs('header') }}>
 

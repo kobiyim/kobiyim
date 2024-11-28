@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v3.0.0
  */
 --}}
+
 {{-- Search --}}
 <div class="quick-search quick-search-inline ml-20 w-300px" id="kt_quick_search_inline">
 	{{-- Form --}}

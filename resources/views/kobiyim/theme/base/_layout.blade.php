@@ -2,9 +2,10 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
+
 @if(config('layout.self.layout') == 'blank')
 	<div class="d-flex flex-column flex-root">
 		@yield('content')

@@ -1,10 +1,11 @@
 {{--
-/**
-* Kobiyim
-* 
-* @version v2.0.0
-*/
+ /**
+ * Kobiyim
+ * 
+ * @version v3.0.0
+ */
 --}}
+
 <script type="text/javascript">
 	var webUri = "{{ url('') }}/";
 	var tokenn = "{{ csrf_token() }}";

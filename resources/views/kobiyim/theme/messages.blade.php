@@ -2,9 +2,10 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
+
 @if(session()->has('message'))
 	<div class="alert alert-success">
 		{{ session('message') }}

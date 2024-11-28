@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v3.0.0
  */
 --}}
+
 {{-- Nav --}}
 <ul class="navi navi-hover py-4">
 	{{-- Item --}}

@@ -2,10 +2,9 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
-{{-- Page Loader Types --}}
 
 {{-- Default --}}
 @if (config('layout.page-loader.type') == 'default')

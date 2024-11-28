@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v3.0.0
  */
 --}}
+
 @if (config('layout.extras.cart.dropdown.style') == 'light')
 	{{-- Header --}}
 	<div class="d-flex align-items-center p-10 rounded-top bg-light">

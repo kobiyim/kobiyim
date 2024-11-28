@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v1.0.0
+ * @version v3.0.0
  */
 --}}
+
 <div class="quick-search quick-search-dropdown" id="kt_quick_search_dropdown">
 	{{-- Form --}}
 	<form method="get" class="quick-search-form">

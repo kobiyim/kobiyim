@@ -2,10 +2,10 @@
  /**
  * Kobiyim
  * 
- * @package kobiyim/kobiyim
- * @since v2.0.3
+ * @version v3.0.0
  */
 --}}
+
 @extends('kobiyim.theme.auth')
 
 @section('content')

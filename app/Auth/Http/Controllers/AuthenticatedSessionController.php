@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Kobiyim
+ *
+ * @version v3.0.0
+ *
+ */
+
 namespace App\Auth\Http\Controllers;
 
 use App\Auth\Http\Requests\LoginRequest;

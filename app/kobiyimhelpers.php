@@ -3,7 +3,8 @@
 /**
  * Kobiyim
  *
- * @version v2.0.2
+ * @version v3.0.0
+ *
  */
 
 use App\Models\ActivityLog;

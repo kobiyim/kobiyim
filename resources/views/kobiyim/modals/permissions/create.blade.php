@@ -2,9 +2,10 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
+
 <div class="modal fade" id="createPermission" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">

@@ -2,11 +2,11 @@
  /**
  * Kobiyim
  * 
- * @version v2.0.0
+ * @version v3.0.0
  */
 --}}
-{{-- Aside --}}
 
+{{-- Aside --}}
 @php
 	$kt_logo_image = 'logo-light.png';
 @endphp

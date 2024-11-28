@@ -1,3 +1,11 @@
+{{--
+ /**
+ * Kobiyim
+ * 
+ * @version v3.0.0
+ */
+--}}
+
 @php
 	$direction = config('layout.extras.quick-panel.offcanvas.direction', 'right');
 @endphp
