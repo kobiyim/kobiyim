@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Kobiyim
+ *
+ * @version v3.0.2
+ *
+ */
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +25,7 @@ return new class extends Migration
             $table->string('subject_type', 128);
             $table->bigInteger('subject_id');
             $table->text('subject_detail');
-            $table->dropTimestamps();
+            $table->timestampsTz();
         });
     }
 
