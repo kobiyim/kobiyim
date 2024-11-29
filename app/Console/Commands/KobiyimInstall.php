@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.3
+ * @version v3.0.4
  *
  */
 
@@ -29,7 +29,7 @@ class KobiyimInstall extends Command
     {
         $this->info('Kobiyim e hoşgeldiniz.');
         $this->info('İlk kurulum ekranı çalıştırıyoruz.');
-        $this->info('Veritabanı bağlantı ayarlarını yaptınız mı?')
+        $this->info('Veritabanı bağlantı ayarlarını yaptınız mı?');
 
         if ($this->confirm('Tabloları oluşturmak ister misiniz?')) {
             $this->call('migrate');
