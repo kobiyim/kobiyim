@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v3.0.6
  */
 --}}
 
@@ -25,7 +25,7 @@
 		@endif
 		{{ html()->form()->route('login')->class('form')->open() }}
 			<div class="form-group mb-5">
-				{{ html()->text('phone', null)->attributes([ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız', 'autofocus', 'tabindex' => 1 ]) }}
+				{{ html()->input('tel', 'phone')->attributes([ 'id' => 'phone', 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'autocomplete' => 'off', 'placeholder' => 'Telefon numaranız', 'autofocus', 'tabindex' => 1 ]) }}
 			</div>
 			<div class="form-group mb-5">
 				{{ html()->password('password')->attributes([ 'class' => 'form-control h-auto form-control-solid py-4 px-8', 'placeholder' => 'Şifreniz', 'tabindex' => 2 ]) }}
