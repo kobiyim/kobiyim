@@ -86,14 +86,6 @@ Route::group(['namespace' => '\App\Auth\Http\Controllers'], function () {
         ->middleware('guest')
         ->name('password.request');
 
-    Route::get('reset-password', 'NewPasswordController@create')
-        ->middleware('guest')
-        ->name('password.reset');
-
-    Route::post('reset-password', 'NewPasswordController@store')
-        ->middleware('guest')
-        ->name('password.update');
-
     // Registration...
     Route::get('register', 'RegisteredUserController@create')
         ->middleware('guest')
