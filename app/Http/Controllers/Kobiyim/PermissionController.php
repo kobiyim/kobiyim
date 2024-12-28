@@ -3,21 +3,16 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Controllers\Kobiyim;
 
-use App\Models\Permission;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Yajra\DataTables\Facades\DataTables;
+use App\Http\Services\Kobiyim\Permission\Destroy;
 use App\Http\Services\Kobiyim\Permission\Json;
 use App\Http\Services\Kobiyim\Permission\Store;
 use App\Http\Services\Kobiyim\Permission\Update;
-use App\Http\Services\Kobiyim\Permission\Destroy;
+use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
@@ -28,21 +23,21 @@ class PermissionController extends Controller
 
     public function json(Request $request)
     {
-        return (new Json())->handle($request);
+        return (new Json)->handle($request);
     }
 
     public function store(Request $request)
     {
-        return (new Store())->handle($request);
+        return (new Store)->handle($request);
     }
 
     public function update(Request $request, $id)
     {
-        return (new Update())->handle($request, $id);
+        return (new Update)->handle($request, $id);
     }
 
     public function destroy(Request $request, $id)
     {
-        return (new Destroy())->handle($request, $id);
+        return (new Destroy)->handle($request, $id);
     }
 }

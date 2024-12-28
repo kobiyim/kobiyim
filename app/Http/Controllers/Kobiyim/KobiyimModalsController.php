@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -24,7 +23,7 @@ class KobiyimModalsController extends Controller
             return $this->{$request->key}($request);
         }
 
-        return throw new \Exception('Modal Anahtarı Bulunamadı' . $request->key, 1);
+        return throw new \Exception('Modal Anahtarı Bulunamadı'.$request->key, 1);
     }
 
     public function createUser(Request $request)

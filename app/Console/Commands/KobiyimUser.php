@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Console\Commands;
@@ -44,33 +43,33 @@ class KobiyimUser extends Command
 
         $validator = Validator::make(
             [
-                'name' => $name,
-                'phone' => $phone,
+                'name'     => $name,
+                'phone'    => $phone,
                 'password' => $password,
-                'type' => $type,
+                'type'     => $type,
             ],
             [
-                'name' => 'required|min:3|max:128',
-                'phone' => 'required|size:16|unique:users,phone',
+                'name'     => 'required|min:3|max:128',
+                'phone'    => 'required|size:16|unique:users,phone',
                 'password' => 'required|min:8',
-                'type' => 'required',
+                'type'     => 'required',
             ],
             [
-                'name.required' => 'Kullanıcı adı girmelisiniz.',
-                'name.min' => 'Kullanıcı adı en az 3 karakter olmalıdır.',
-                'name.max' => 'Kullanıcı adı maksimum 128 karakter olabilir.',
+                'name.required'  => 'Kullanıcı adı girmelisiniz.',
+                'name.min'       => 'Kullanıcı adı en az 3 karakter olmalıdır.',
+                'name.max'       => 'Kullanıcı adı maksimum 128 karakter olabilir.',
                 'phone.required' => 'Telefon alanı gereklidir.',
-                'phone.unique' => 'Telefon numarası önceden kayıt edilmiş.',
+                'phone.unique'   => 'Telefon numarası önceden kayıt edilmiş.',
             ],
         );
 
         if ($validator->passes()) {
             User::create([
-                'name' => $name,
-                'phone' => $phone,
-                'password' => Hash::make($password),
+                'name'      => $name,
+                'phone'     => $phone,
+                'password'  => Hash::make($password),
                 'is_active' => 1,
-                'type' => ($type == 1) ? 'admin' : 'user',
+                'type'      => ($type == 1) ? 'admin' : 'user',
             ]);
         } else {
             foreach ($validator->errors()->all() as $error) {

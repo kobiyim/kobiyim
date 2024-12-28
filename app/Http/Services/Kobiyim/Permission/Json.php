@@ -3,16 +3,13 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Services\Kobiyim\Permission;
 
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
 
 class Json

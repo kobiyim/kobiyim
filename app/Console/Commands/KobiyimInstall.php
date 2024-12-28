@@ -3,16 +3,12 @@
 /**
  * Kobiyim
  *
- * @version v3.0.4
- *
+ * @version v3.0.9
  */
 
 namespace App\Console\Commands;
 
-use App\Models\User;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class KobiyimInstall extends Command
 {

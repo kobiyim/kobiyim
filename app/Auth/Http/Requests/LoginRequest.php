@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Auth\Http\Requests;
@@ -21,7 +20,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'required|string|size:16',
+            'phone'    => 'required|string|size:16',
             'password' => 'required|string',
         ];
     }
@@ -30,8 +29,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'phone.required'    => 'Sisteme giriş için telefon numaranız gerekli.',
-            'phone.size' => 'Telefon numaranızı tam giriniz.',
-            'password.required' => 'Şifrenizi giriniz.'
+            'phone.size'        => 'Telefon numaranızı tam giriniz.',
+            'password.required' => 'Şifrenizi giriniz.',
         ];
     }
 }

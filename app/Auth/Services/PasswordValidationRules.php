@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Auth\Services;
@@ -15,6 +14,6 @@ trait PasswordValidationRules
 {
     protected function passwordRules()
     {
-        return ['required', 'string', new Password()];
+        return ['required', 'string', new Password];
     }
 }

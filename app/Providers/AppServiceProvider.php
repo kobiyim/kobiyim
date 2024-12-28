@@ -3,14 +3,13 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Metronic\Init;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

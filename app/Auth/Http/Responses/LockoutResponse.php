@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Auth\Http\Responses;
@@ -27,7 +26,7 @@ class LockoutResponse implements Responsable
     {
         return with($this->limiter->availableIn($request), function ($seconds) {
             throw ValidationException::withMessages([
-                'phone' => 'Çok fazla giriş denemesi yaptınız.\nGiriş denemeleriniz engellendi. ' . $seconds,
+                'phone' => 'Çok fazla giriş denemesi yaptınız.\nGiriş denemeleriniz engellendi. '.$seconds,
             ])->status(Response::HTTP_TOO_MANY_REQUESTS);
         });
     }

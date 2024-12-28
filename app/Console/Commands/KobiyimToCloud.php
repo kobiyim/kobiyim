@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Console\Commands;
@@ -30,7 +29,7 @@ class KobiyimToCloud extends Command
         $files = Backup::where('is_loaded', 0)->get();
 
         foreach ($files as $file) {
-            \Storage::disk('digitalocean')->put(env('KOBIYIM_USERNAME') . '/' . $file->type . '/' . $file->filename, \File::get($file->dir));
+            \Storage::disk('digitalocean')->put(env('KOBIYIM_USERNAME').'/'.$file->type.'/'.$file->filename, \File::get($file->dir));
 
             $file->update([
                 'is_loaded' => 1,

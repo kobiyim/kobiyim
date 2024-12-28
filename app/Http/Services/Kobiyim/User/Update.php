@@ -3,20 +3,15 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Services\Kobiyim\User;
 
-use App\Models\Permission;
 use App\Models\User;
-use App\Models\UserPermission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Validation\Rule;
 
 class Update
@@ -25,35 +20,35 @@ class Update
     {
         $validator = Validator::make(
             [
-                'name' => $request->name,
-                'phone' => $request->phone,
-                'type' => $request->type,
+                'name'     => $request->name,
+                'phone'    => $request->phone,
+                'type'     => $request->type,
                 'password' => $request->password,
             ],
             [
-                'name' => 'required|min:3|max:128',
-                'phone' => ['required_without:phone|nullable', Rule::unique('users')->ignore($id, 'id')],
-                'password' => 'nullable|min:8'
+                'name'     => 'required|min:3|max:128',
+                'phone'    => ['required_without:phone|nullable', Rule::unique('users')->ignore($id, 'id')],
+                'password' => 'nullable|min:8',
             ],
             [
                 'name.required' => 'Kullanıcı adı girmelisiniz.',
-                'name.min' => 'Kullanıcı adı en az 3 karakter olmalıdır.',
-                'name.max' => 'Kullanıcı adı maksimum 128 karakter olabilir.',
-                'phone.unique' => 'Kullanıcı telefon numarası daha önce kullanılmış',
+                'name.min'      => 'Kullanıcı adı en az 3 karakter olmalıdır.',
+                'name.max'      => 'Kullanıcı adı maksimum 128 karakter olabilir.',
+                'phone.unique'  => 'Kullanıcı telefon numarası daha önce kullanılmış',
             ],
         );
 
         if ($validator->passes()) {
             User::find($id)->update([
-                'name' => $request->name,
+                'name'  => $request->name,
                 'phone' => $request->phone,
-                'type' => $request->type,
+                'type'  => $request->type,
             ]);
 
             activityRecord([
                 'subject_type' => 'App\Models\User',
-                'subject_id' => $id,
-                'description' => 'Kullanıcı güncellendi.',
+                'subject_id'   => $id,
+                'description'  => 'Kullanıcı güncellendi.',
             ]);
 
             if ($request->has('password')) {
@@ -61,13 +56,13 @@ class Update
             }
 
             return response()->json([
-                'status' => 'success',
+                'status'  => 'success',
                 'message' => 'Kullanıcı düzenlendi.',
             ]);
         }
 
         return response()->json([
-            'status' => 'error',
+            'status'   => 'error',
             'messages' => arrangeErrors($validator->errors()->toArray()),
         ]);
     }

@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Console\Commands;
@@ -28,8 +27,8 @@ class KobiyimDatabaseBackup extends Command
     {
         $this->info('Yedekleme başlatıldı.');
 
-        $filename = now()->format('Ymd-Hi') . '.sql';
-        $dir = storage_path('backup/' . $filename);
+        $filename = now()->format('Ymd-Hi').'.sql';
+        $dir = storage_path('backup/'.$filename);
 
         MySql::create()
             ->setDbName(env('DB_DATABASE'))
@@ -39,10 +38,10 @@ class KobiyimDatabaseBackup extends Command
             ->dumpToFile($dir);
 
         Backup::create([
-            'filename' => $filename,
-            'dir' => $dir,
-            'type' => 'sql',
-            'size' => \File::size($dir),
+            'filename'  => $filename,
+            'dir'       => $dir,
+            'type'      => 'sql',
+            'size'      => \File::size($dir),
             'is_loaded' => 0,
         ]);
 

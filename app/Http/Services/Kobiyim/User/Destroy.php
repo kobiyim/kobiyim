@@ -3,20 +3,13 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Services\Kobiyim\User;
 
-use App\Models\Permission;
 use App\Models\User;
-use App\Models\UserPermission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use Yajra\DataTables\Facades\DataTables;
 
 class Destroy
 {
@@ -30,13 +23,13 @@ class Destroy
 
         activityRecord([
             'subject_type' => 'App\Models\User',
-            'subject_id' => $id,
-            'description' => 'Kullanıcı durumu değiştirildi.',
+            'subject_id'   => $id,
+            'description'  => 'Kullanıcı durumu değiştirildi.',
         ]);
 
         return response()->json([
-            'status' => 'success',
-            'message' => 'Kullanıcı aktifliği ' . (($get['is_active'] == 1) ? 'aktif' : 'pasif') . ' olarak değiştirildi.',
+            'status'  => 'success',
+            'message' => 'Kullanıcı aktifliği '.(($get['is_active'] == 1) ? 'aktif' : 'pasif').' olarak değiştirildi.',
         ]);
     }
 }

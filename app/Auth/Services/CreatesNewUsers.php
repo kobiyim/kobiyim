@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Auth\Services;
@@ -19,10 +18,10 @@ class CreatesNewUsers
     public function create(array $input)
     {
         return User::create([
-            'name' => $input['name'],
-            'phone' => $input['phone'],
-            'password' => Hash::make($input['password']),
-            'type' => 'user',
+            'name'      => $input['name'],
+            'phone'     => $input['phone'],
+            'password'  => Hash::make($input['password']),
+            'type'      => 'user',
             'is_active' => 0,
         ]);
     }

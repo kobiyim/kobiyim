@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 use App\Models\ActivityLog;
@@ -23,56 +22,56 @@ if (! function_exists('activityRecord')) {
     }
 }
 
-if(! function_exists('vKobiyim')) {
+if (! function_exists('vKobiyim')) {
     function vKobiyim()
     {
         return json_decode(connectToKobiyim('https://api.kobiyim.com/get-latest-kobiyim-framework'))->version;
     }
 }
 
-if(! function_exists('checkConnectionToKobiyim')) {
+if (! function_exists('checkConnectionToKobiyim')) {
     function checkConnectionToKobiyim()
     {
         return connectToKobiyim('https://api.kobiyim.com/check-connection');
     }
 }
 
-if(! function_exists('saveActivity')) {
+if (! function_exists('saveActivity')) {
     function saveActivity($inputs)
     {
         return connectToKobiyim('https://api.kobiyim.com/save-activity', $inputs);
     }
 }
 
-if(! function_exists('saveBackupStatus')) {
+if (! function_exists('saveBackupStatus')) {
     function saveBackupStatus($inputs)
     {
         return connectToKobiyim('https://api.kobiyim.com/save-backup-status', $inputs);
     }
 }
 
-if(! function_exists('saveLog')) {
+if (! function_exists('saveLog')) {
     function saveLog($inputs)
     {
         return connectToKobiyim('https://api.kobiyim.com/save-log', $inputs);
     }
 }
 
-if(! function_exists('updates')) {
+if (! function_exists('updates')) {
     function updates()
     {
         return connectToKobiyim('https://api.kobiyim.com/updates');
     }
 }
 
-if(! function_exists('kobiyimUpdates')) {
+if (! function_exists('kobiyimUpdates')) {
     function kobiyimUpdates()
     {
         return connectToKobiyim('https://api.kobiyim.com/kobiyim-updates');
     }
 }
 
-if(! function_exists('vLaravel')) {
+if (! function_exists('vLaravel')) {
     function vLaravel()
     {
         return json_decode(connectToKobiyim('https://api.kobiyim.com/get-latest-laravel-framework'))->version;
@@ -80,11 +79,12 @@ if(! function_exists('vLaravel')) {
 }
 
 if (! function_exists('connectToKobiyim')) {
-    function connectToKobiyim($url, $inputs = []) {
+    function connectToKobiyim($url, $inputs = [])
+    {
         return Http::post($url, array_merge([
-            'username' => env('KOBIYIM_USERNAME'),
+            'username'   => env('KOBIYIM_USERNAME'),
             'app_secret' => env('KOBIYIM_SECRET'),
-            'app_key' => env('KOBIYIM_KEY'),
+            'app_key'    => env('KOBIYIM_KEY'),
         ], $inputs));
     }
 }
@@ -110,15 +110,15 @@ if (! function_exists('month')) {
     function month($which = null)
     {
         $months = collect([
-            1 => 'Ocak',
-            2 => 'Şubat',
-            3 => 'Mart',
-            4 => 'Nisan',
-            5 => 'Mayıs',
-            6 => 'Haziran',
-            7 => 'Temmuz',
-            8 => 'Ağustos',
-            9 => 'Eylül',
+            1  => 'Ocak',
+            2  => 'Şubat',
+            3  => 'Mart',
+            4  => 'Nisan',
+            5  => 'Mayıs',
+            6  => 'Haziran',
+            7  => 'Temmuz',
+            8  => 'Ağustos',
+            9  => 'Eylül',
             10 => 'Ekim',
             11 => 'Kasım',
             12 => 'Aralık',
@@ -167,103 +167,105 @@ if (! function_exists('arrangeErrors')) {
 if (! function_exists('formatBytes')) {
     function formatBytes($size)
     {
-        if($size == 0) return 0;
+        if ($size == 0) {
+            return 0;
+        }
 
         $base = log($size) / log(1024);
-        $suffix = array("", "KB", "MB", "GB", "TB");
+        $suffix = ['', 'KB', 'MB', 'GB', 'TB'];
         $f_base = floor($base);
-        return round(pow(1024, $base - floor($base)), 2) . ' ' . $suffix[$f_base];
+
+        return round(pow(1024, $base - floor($base)), 2).' '.$suffix[$f_base];
     }
 }
-
 
 if (! function_exists('systemMenu')) {
     function systemMenu()
     {
         return [
             [
-                    'title' => 'Sistem',
-                    'root' => true,
-                    'toggle' => 'click',
-                    'can' => 'system-menusu',
-                    'submenu' => [
-                        'type' => 'classic',
-                        'alignment' => 'left',
-                        'items' => [
-                            [
-                                'title' => 'Aktiviteler',
-                                'root' => true,
-                                'page' => 'system/activity',
-                                'whereActive' => [
-                                    [
-                                        'segment' => 1,
-                                        'value' => 'system',
-                                    ],
-                                    [
-                                        'segment' => 2,
-                                        'value' => 'activity',
-                                    ],
+                'title'   => 'Sistem',
+                'root'    => true,
+                'toggle'  => 'click',
+                'can'     => 'system-menusu',
+                'submenu' => [
+                    'type'      => 'classic',
+                    'alignment' => 'left',
+                    'items'     => [
+                        [
+                            'title'       => 'Aktiviteler',
+                            'root'        => true,
+                            'page'        => 'system/activity',
+                            'whereActive' => [
+                                [
+                                    'segment' => 1,
+                                    'value'   => 'system',
+                                ],
+                                [
+                                    'segment' => 2,
+                                    'value'   => 'activity',
                                 ],
                             ],
-                            [
-                                'title' => 'Sorgu Takibi',
-                                'page' => 'system/querylogs',
-                                'whereActive' => [
-                                    [
-                                        'segment' => 1,
-                                        'value' => 'system',
-                                    ],
-                                    [
-                                        'segment' => 2,
-                                        'value' => 'querylogs',
-                                    ],
+                        ],
+                        [
+                            'title'       => 'Sorgu Takibi',
+                            'page'        => 'system/querylogs',
+                            'whereActive' => [
+                                [
+                                    'segment' => 1,
+                                    'value'   => 'system',
+                                ],
+                                [
+                                    'segment' => 2,
+                                    'value'   => 'querylogs',
                                 ],
                             ],
-                            [
-                                'title' => 'Kullanıcılar',
-                                'page' => 'system/user',
-                                'whereActive' => [
-                                    [
-                                        'segment' => 1,
-                                        'value' => 'system',
-                                    ],
-                                    [
-                                        'segment' => 2,
-                                        'value' => 'user',
-                                    ],
+                        ],
+                        [
+                            'title'       => 'Kullanıcılar',
+                            'page'        => 'system/user',
+                            'whereActive' => [
+                                [
+                                    'segment' => 1,
+                                    'value'   => 'system',
+                                ],
+                                [
+                                    'segment' => 2,
+                                    'value'   => 'user',
                                 ],
                             ],
-                            [
-                                'title' => 'İzinler',
-                                'page' => 'system/permission',
-                                'whereActive' => [
-                                    [
-                                        'segment' => 1,
-                                        'value' => 'system',
-                                    ],
-                                    [
-                                        'segment' => 2,
-                                        'value' => 'permission',
-                                    ],  
+                        ],
+                        [
+                            'title'       => 'İzinler',
+                            'page'        => 'system/permission',
+                            'whereActive' => [
+                                [
+                                    'segment' => 1,
+                                    'value'   => 'system',
+                                ],
+                                [
+                                    'segment' => 2,
+                                    'value'   => 'permission',
                                 ],
                             ],
-                            [
-                                'title' => 'Yedeklemeler',
-                                'page' => 'system/backup',
-                                'whereActive' => [
-                                    [
-                                        'segment' => 1,
-                                        'value' => 'system',
-                                    ],
-                                    [
-                                        'segment' => 2,
-                                        'value' => 'backup',
-                                    ],  
+                        ],
+                        [
+                            'title'       => 'Yedeklemeler',
+                            'page'        => 'system/backup',
+                            'whereActive' => [
+                                [
+                                    'segment' => 1,
+                                    'value'   => 'system',
+                                ],
+                                [
+                                    'segment' => 2,
+                                    'value'   => 'backup',
                                 ],
                             ],
                         ],
                     ],
-                ]
+                ],
+            ],
         ];
     }
 }

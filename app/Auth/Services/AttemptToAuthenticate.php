@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Auth\Services;
@@ -29,8 +28,8 @@ class AttemptToAuthenticate
     {
         if (
             Auth::attempt([
-                'phone' => $request->phone,
-                'password' => $request->password,
+                'phone'     => $request->phone,
+                'password'  => $request->password,
                 'is_active' => 1,
             ])
         ) {

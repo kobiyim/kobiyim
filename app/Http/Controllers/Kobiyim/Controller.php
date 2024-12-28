@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Controllers\Kobiyim;
@@ -19,7 +18,7 @@ class Controller extends BaseController
 
         foreach ($errors as $key => $errorDetails) {
             $data[] = [
-                'key' => $key,
+                'key'     => $key,
                 'message' => implode(' ', $errorDetails),
             ];
         }

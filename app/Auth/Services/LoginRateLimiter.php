@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Auth\Services;
@@ -49,6 +48,6 @@ class LoginRateLimiter
 
     protected function throttleKey(Request $request)
     {
-        return Str::lower($request->input('phone', '')) . '|' . $request->ip();
+        return Str::lower($request->input('phone', '')).'|'.$request->ip();
     }
 }

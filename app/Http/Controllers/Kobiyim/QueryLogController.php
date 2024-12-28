@@ -3,16 +3,13 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Controllers\Kobiyim;
 
-use App\Models\QueryLog;
-use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 use App\Http\Services\Kobiyim\QueryLog\Json;
+use Illuminate\Http\Request;
 
 class QueryLogController extends Controller
 {
@@ -23,6 +20,6 @@ class QueryLogController extends Controller
 
     public function json(Request $request)
     {
-        return (new Json())->handle($request);
+        return (new Json)->handle($request);
     }
 }

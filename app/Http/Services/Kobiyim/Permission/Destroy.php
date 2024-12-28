@@ -3,17 +3,13 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Services\Kobiyim\Permission;
 
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Yajra\DataTables\Facades\DataTables;
 
 class Destroy
 {
@@ -23,12 +19,12 @@ class Destroy
 
         activityRecord([
             'subject_type' => 'App\Models\Permission',
-            'subject_id' => $id,
-            'description' => 'İzin silindi.',
+            'subject_id'   => $id,
+            'description'  => 'İzin silindi.',
         ]);
 
         return response()->json([
-            'status' => 'success',
+            'status'  => 'success',
             'message' => 'İzin silindi.',
         ]);
     }

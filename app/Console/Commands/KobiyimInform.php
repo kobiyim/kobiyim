@@ -3,13 +3,11 @@
 /**
  * Kobiyim
  *
- * @version v3.0.5
- *
+ * @version v3.0.9
  */
 
 namespace App\Console\Commands;
 
-use App\Models\User;
 use Illuminate\Console\Command;
 
 class KobiyimInform extends Command

@@ -3,8 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.0
- *
+ * @version v3.0.9
  */
 
 namespace App\Http\Services\Kobiyim\Backup;
@@ -26,7 +25,7 @@ class Json
             ->editColumn('size', function ($model) {
                 return formatBytes($model->size);
             })
-            ->editColumn('is_loaded', function($model) {
+            ->editColumn('is_loaded', function ($model) {
                 return ($model->is_loaded == 1) ? 'Aktarıldı' : 'Yüklenmedi';
             })
             ->toJson();
