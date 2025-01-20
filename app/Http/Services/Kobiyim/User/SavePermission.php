@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.9
+ * @version v4.0.0
  */
 
 namespace App\Http\Services\Kobiyim\User;
@@ -33,6 +33,6 @@ class SavePermission
             'description'  => 'Kullanıcı izinleri güncellendi.',
         ]);
 
-        return redirect()->route('user.index');
+        return redirect()->route('system.user.index');
     }
 }

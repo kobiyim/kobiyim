@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v4.0.0
  */
 --}}
 
@@ -18,7 +18,7 @@
 		serverSide: true,
 		ordering: false,
 		ajax: {
-			url: '{{ route('activity.json') }}'
+			url: '{{ route('system.activity.json') }}'
 		},
 		columns: [
 			{data: 'created_at', name: 'created_at'},

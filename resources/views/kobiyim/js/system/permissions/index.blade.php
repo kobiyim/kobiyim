@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v4.0.0
  */
 --}}
 
@@ -17,7 +17,7 @@
 		processing: true,
 		serverSide: true,
 		ajax: {
-			url: '{{ route('permission.json') }}'
+			url: '{{ route('system.permission.json') }}'
 		},
 		columns: [
 			{data: 'name', name: 'name'},
@@ -43,7 +43,7 @@
 			reverseButtons: 0
 		}).then(function(e) {
 			if(e.value == true) {
-				rsp = deleteData('{{ route('permission.index') }}/' + id, {});
+				rsp = deleteData('{{ route('system.permission.index') }}/' + id, {});
 
 				if(rsp.status == 'success') {
 					showSuccessMessage(rsp.message);
@@ -56,7 +56,7 @@
 
 	function store()
 	{
-		rsp = postData("{!! route('permission.store') !!}", {
+		rsp = postData("{!! route('system.permission.store') !!}", {
 			name : $("#name").val(),
 			key : $("#key").val()
 		});
@@ -83,7 +83,7 @@
 
 	function update(id)
 	{
-		rsp = putData("{!! route('permission.index') !!}/" + id, {
+		rsp = putData("{!! route('system.permission.index') !!}/" + id, {
 			name : $("#name" + id).val(),
 			key : $("#key" + id).val()
 		});

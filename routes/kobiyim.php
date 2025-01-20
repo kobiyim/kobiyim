@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.7
+ * @version v4.0.0
  *
  */
 
@@ -21,47 +21,47 @@ Route::group([
         Route::group([
             'prefix' => 'activity',
         ], function () {
-            Route::get('/', 'ActivityController@index')->name('activity');
-            Route::get('json', 'ActivityController@json')->name('activity.json');
+            Route::get('/', 'ActivityController@index')->name('system.activity');
+            Route::get('json', 'ActivityController@json')->name('system.activity.json');
         });
 
         Route::group([
-            'prefix' => 'querylogs',
+            'prefix' => 'querylog',
         ], function () {
-            Route::get('/', 'QueryLogController@index')->name('querylog');
-            Route::get('json', 'QueryLogController@json')->name('querylog.json');
+            Route::get('/', 'QueryLogController@index')->name('system.querylog');
+            Route::get('json', 'QueryLogController@json')->name('system.querylog.json');
         });
 
         Route::group([
             'prefix' => 'backup',
         ], function () {
-            Route::get('/', 'BackupController@index')->name('backup');
-            Route::get('json', 'BackupController@json')->name('backup.json');
+            Route::get('/', 'BackupController@index')->name('system.backup');
+            Route::get('json', 'BackupController@json')->name('system.backup.json');
         });
 
-        Route::get('user/json', 'UserController@json')->name('user.json');
+        Route::get('user/json', 'UserController@json')->name('system.user.json');
 
-        Route::get('user/{id}/permission', 'UserController@permission')->name('user.permission');
+        Route::get('user/{id}/permission', 'UserController@permission')->name('system.user.permission');
         Route::post('user/{id}/permission', 'UserController@savePermission');
 
         Route::group([
             'prefix' => 'user',
         ], function () {
-            Route::get('/', 'UserController@index')->name('user.index');
-            Route::get('json', 'UserController@json')->name('user.json');
-            Route::post('/', 'UserController@store')->name('user.store');
-            Route::put('{id}', 'UserController@update')->name('user.update');
-            Route::delete('{id}', 'UserController@destroy')->name('user.destroy');
+            Route::get('/', 'UserController@index')->name('system.user.index');
+            Route::get('json', 'UserController@json')->name('system.user.json');
+            Route::post('/', 'UserController@store')->name('system.user.store');
+            Route::put('{id}', 'UserController@update')->name('system.user.update');
+            Route::delete('{id}', 'UserController@destroy')->name('system.user.destroy');
         });
 
         Route::group([
             'prefix' => 'permission',
         ], function () {
-            Route::get('/', 'PermissionController@index')->name('permission.index');
-            Route::get('json', 'PermissionController@json')->name('permission.json');
-            Route::post('/', 'PermissionController@store')->name('permission.store');
-            Route::put('{id}', 'PermissionController@update')->name('permission.update');
-            Route::delete('{id}', 'PermissionController@destroy')->name('permission.destroy');
+            Route::get('/', 'PermissionController@index')->name('system.permission.index');
+            Route::get('json', 'PermissionController@json')->name('system.permission.json');
+            Route::post('/', 'PermissionController@store')->name('system.permission.store');
+            Route::put('{id}', 'PermissionController@update')->name('system.permission.update');
+            Route::delete('{id}', 'PermissionController@destroy')->name('system.permission.destroy');
         });
     });
 
