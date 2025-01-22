@@ -2,37 +2,33 @@
  /**
  * Kobiyim
  * 
- * @version v4.0.0
+ * @version v3.0.0
  */
 --}}
 
 @extends('kobiyim.theme.default')
 
 @section('content')
-	<div class="page-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="card-title">Yedeklemeler</h3>
-					</div>
-					<div class="card-body">
-						<table class="table table-bordered table-hover" id="datatable">
-							<thead>
-								<tr>
-									<th>Dosya Adı</th>
-									<th>Dizin</th>
-									<th>Uzantısı</th>
-									<th>Yüklenme Durumu</th>
-									<th>Dosya Boyutu</th>
-									<th>Oluşturulma</th>
-								</tr>
-							</thead>
-							<tbody></tbody>
-						</table>
-					</div>
-				</div>
+	<div class="card card-custom">
+		<div class="card-header align-items-center border-0">
+			<div class="card-title">
+				<h3 class="card-label">Yedeklemeler</h3>
 			</div>
+		</div>
+		<div class="card-body pt-4 table-responsive">
+			<table class="table table-bordered table-hover" id="datatable">
+				<thead>
+					<tr>
+						<th>Dosya Adı</th>
+						<th>Dizin</th>
+						<th>Uzantısı</th>
+						<th>Yüklenme Durumu</th>
+						<th>Dosya Boyutu</th>
+						<th>Oluşturulma</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
 		</div>
 	</div>
 @endsection

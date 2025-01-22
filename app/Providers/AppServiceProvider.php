@@ -3,11 +3,12 @@
 /**
  * Kobiyim
  *
- * @version v4.0.0
+ * @version v3.0.9
  */
 
 namespace App\Providers;
 
+use App\Metronic\Init;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Init::run();
     }
 }

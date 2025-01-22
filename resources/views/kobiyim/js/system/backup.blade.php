@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v4.0.0
+ * @version v3.0.0
  */
 --}}
 
@@ -18,7 +18,7 @@
 		serverSide: true,
 		ordering: false,
 		ajax: {
-			url: '{{ route('system.backup.json') }}'
+			url: '{{ route('backup.json') }}'
 		},
 		columns: [
 			{data: 'filename', name: 'filename'},

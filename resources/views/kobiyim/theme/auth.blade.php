@@ -2,43 +2,76 @@
  /**
  * Kobiyim
  * 
- * @version v4.0.0
+ * @version v3.0.0
  */
 --}}
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" {{ Metronic::printAttrs('html') }} {{ Metronic::printClasses('html') }}>
 	<head>
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-		<title>@yield('title', $page_title ?? config('kobiyim.name'))</title>
-		<!-- CSS files -->
-		<link href="{{ asset('css/tabler.min.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('css/tabler-flags.min.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('css/tabler-payments.min.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('css/tabler-vendors.min.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('css/demo.min.css') }}" rel="stylesheet"/>
-		<style>
-			@import url('https://rsms.me/inter/inter.css');
-			:root {
-			--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-			}
-			body {
-			font-feature-settings: "cv03", "cv04", "cv11";
-			}
-		</style>
-	</head>
-	<body  class=" d-flex flex-column">
-		<div class="page page-center">
-			@yield('content')
-		</div>
-		<!-- Libs JS -->
-		<!-- Tabler Core -->
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-		<script src="{{ asset('js/tabler.min.js') }}" defer></script>
-		<script src="{{ asset('js/jquery.inputmask.min.js') }}"></script>
 
+		{{-- Title Section --}}
+		<title>@yield('title', $page_title ?? config('kobiyim.name'))</title>
+
+		{{-- Meta Data --}}
+		<meta name="description" content="@yield('page_description', $page_description ?? '')"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+		{{-- Favicon --}}
+		<link rel="shortcut icon" href="{{ asset('media/logos/favicon.ico') }}" />
+
+		{{-- Fonts --}}
+		{{ Metronic::getGoogleFontsInclude() }}
+
+		{{-- Global Theme Styles (used by all pages) --}}
+		@foreach(config('layout.resources.css') as $style)
+			<link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($style)) : asset($style) }}" rel="stylesheet" type="text/css"/>
+		@endforeach
+
+		{{-- Layout Themes (used by all pages) --}}
+		@foreach (Metronic::initThemes() as $theme)
+			<link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($theme)) : asset($theme) }}" rel="stylesheet" type="text/css"/>
+		@endforeach
+
+		{{-- Includable CSS --}}
+		<link href="{{ asset('css/pages/login/classic/login-4.css') }}" rel="stylesheet" type="text/css" />
+
+		@yield('styles')
+	</head>
+
+	<body {{ Metronic::printAttrs('body') }} {{ Metronic::printClasses('body') }}>
+
+		@if (config('layout.page-loader.type') != '')
+			@include('kobiyim.theme.layout.partials._page-loader')
+		@endif
+
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Login-->
+			<div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
+				<div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat" style="background-image: url('{{ asset('media/bg/bg-3.jpg') }}');">
+					<div class="login-form text-center p-7 position-relative overflow-hidden">
+						@yield('content')
+					</div>
+				</div>
+			</div>
+			<!--end::Login-->
+		</div>
+
+		<script>var HOST_URL = "{{ url('/') }}";</script>
+
+		{{-- Global Config (global config for global JS scripts) --}}
+		<script>
+			var KTAppSettings = {!! json_encode(config('layout.js'), JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) !!};
+		</script>
+
+		{{-- Global Theme JS Bundle (used by all pages)  --}}
+		@foreach(config('layout.resources.js') as $script)
+			<script src="{{ asset($script) }}" type="text/javascript"></script>
+		@endforeach
+
+		{{-- Includable JS --}}
 		@yield('scripts')
+
 	</body>
 </html>

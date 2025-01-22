@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v4.0.0
+ * @version v3.0.0
  */
 --}}
 
@@ -15,7 +15,7 @@
 				<div class="card-header">
 					<h3 class="card-title">{{ $get->name }} için İzinler</h3>
 				</div>
-				{{ html()->form()->open([ 'route' => [ 'system.user.permission', $get->id ], 'class' => 'form' ]) }}
+				{{ html()->form()->open([ 'route' => [ 'user.permission', $get->id ], 'class' => 'form' ]) }}
 					<div class="card-body">
 						<div class="form-group">
 							<div class="checkbox-list">

@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v4.0.0
+ * @version v3.0.0
  */
 --}}
 
@@ -17,7 +17,7 @@
 		processing: true,
 		serverSide: true,
 		ajax: {
-			url: '{{ route('system.user.json') }}'
+			url: '{{ route('user.json') }}'
 		},
 		columns: [
 			{data: 'name', name: 'name'},
@@ -44,7 +44,7 @@
 			reverseButtons: 0
 		}).then(function(e) {
 			if(e.value == true) {
-				rsp = deleteData('{{ route('system.user.index') }}/' + id, {});
+				rsp = deleteData('{{ route('user.index') }}/' + id, {});
 
 				if(rsp.status == 'success') {
 					showSuccessMessage(rsp.message);
@@ -57,7 +57,7 @@
 
 	function store()
 	{
-		rsp = postData("{!! route('system.user.store') !!}", {
+		rsp = postData("{!! route('user.store') !!}", {
 			name : $("#name").val(),
 			phone : $("#phone").val(),
 			password : $("#password").val(),
@@ -88,7 +88,7 @@
 
 	function update(id)
 	{
-		rsp = putData("{!! route('system.user.index') !!}/" + id, {
+		rsp = putData("{!! route('user.index') !!}/" + id, {
 			name : $("#name" + id).val(),
 			phone : $("#phone" + id).val(),
 			password : $("#password" + id).val(),

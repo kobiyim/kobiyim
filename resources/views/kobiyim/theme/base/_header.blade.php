@@ -2,27 +2,34 @@
  /**
  * Kobiyim
  * 
- * @version v4.0.0
+ * @version v3.0.0
  */
 --}}
 
-<header class="navbar navbar-expand-md d-print-none" >
-	<div class="container-xl">
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-		</button>
-		<h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-			@include('logo.dashboard')
-		</h1>
-		<div class="navbar-nav flex-row order-md-last">
-			@include('kobiyim.theme.base.user')
-		</div>
-		<div class="collapse navbar-collapse" id="navbar-menu">
-			<div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
-				<ul class="navbar-nav">
-					@include('kobiyim.theme.base.menu')
-				</ul>
+{{-- Header --}}
+<div id="kt_header" class="header {{ Metronic::printClasses('header', false) }}" {{ Metronic::printAttrs('header') }}>
+
+	{{-- Container --}}
+	<div class="container-fluid d-flex align-items-center justify-content-between">
+		@if (config('layout.header.self.display'))
+
+			{{-- Header Menu --}}
+			<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+				@if(config('layout.aside.self.display') == false)
+					@include('logo.dashboard')
+				@endif
+
+				<div id="kt_header_menu" class="header-menu header-menu-mobile {{ Metronic::printClasses('header_menu', false) }}" {{ Metronic::printAttrs('header_menu') }}>
+					<ul class="menu-nav {{ Metronic::printClasses('header_menu_nav', false) }}">
+						{{ Menu::renderHorMenu(array_merge(config('menu_header.items'), systemMenu())) }}
+					</ul>
+				</div>
 			</div>
-		</div>
+
+		@else
+			<div></div>
+		@endif
+
+		@include('kobiyim.theme.partials.extras._topbar')
 	</div>
-</header>
+</div>
