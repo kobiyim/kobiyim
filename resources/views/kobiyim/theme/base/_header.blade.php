@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v3.0.11
  */
 --}}
 
@@ -10,7 +10,11 @@
 <div id="kt_header" class="header {{ Metronic::printClasses('header', false) }}" {{ Metronic::printAttrs('header') }}>
 
 	{{-- Container --}}
-	<div class="container-fluid d-flex align-items-center justify-content-between">
+	@if(config('layout.header.self.width') == 'fluid')
+		<div class="container-fluid d-flex align-items-center justify-content-between">
+	@else
+		 <div class="container  d-flex align-items-stretch justify-content-between">
+	@endif
 		@if (config('layout.header.self.display'))
 
 			{{-- Header Menu --}}

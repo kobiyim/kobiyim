@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v3.0.11
  */
 --}}
 
@@ -108,12 +108,12 @@
 	@endif
 
 	{{-- Quick panel --}}
-	@if (config('layout.extras.quick-panel.display'))
-		@if(can('uretim-akisi'))
-			<div class="topbar-item">
-
+	@if (config('layout.header.topbar.quick-panel.display'))
+		<div class="topbar-item">
+			<div class="btn btn-icon btn-clean btn-lg mr-1" id="kt_quick_panel_toggle">
+				{{ Metronic::getSVG("media/svg/icons/Layout/Layout-4-blocks.svg", "svg-icon-xl svg-icon-primary") }}
 			</div>
-		@endif
+		</div>
 	@endif
 
 	{{-- Languages --}}
@@ -149,7 +149,7 @@
 				<div class="topbar-item" data-toggle="dropdown" data-offset="0px,0px">
 					<div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2">
 						<span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">@if(date('H') > 6 AND date('H') < 10) Günaydın, @elseif(date('H') >= 10 AND date('H') < 16) İyi Günler, @elseif(date('H') >= 16 AND date('H') < 22) İyi Akşamlar, @else İyi Gelecer, @endif</span>
-						@auth<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{Auth::user()->name}}</span>@endauth
+						<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ Auth::user()->name }}</span>
 						<span class="symbol symbol-35 symbol-light-success">
 							<span class="symbol-label font-size-h5 font-weight-bold">{{ Auth::user()->name[0] }}</span>
 						</span>

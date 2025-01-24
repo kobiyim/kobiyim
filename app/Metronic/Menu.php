@@ -3,7 +3,7 @@
 /**
  * Kobiyim
  *
- * @version v3.0.9
+ * @version v3.0.11
  */
 
 namespace App\Metronic;
@@ -455,33 +455,10 @@ class Menu
         if (isset($item['whereActive'])) {
             $result = false;
 
-            foreach ($item['whereActive'] as $e) {
-                if (isset($e['value']) and ! isset($e['type'])) {
-                    if (request()->segment($e['segment']) == $e['value']) {
-                        $result = true;
-                    } else {
-                        $result = false;
-                        break;
-                    }
-                }
-
-                if (isset($e['type']) and isset($e['value'])) {
-                    if (request($e['type']) == $e['value']) {
-                        $result = true;
-                    } else {
-                        $result = false;
-                        break;
-                    }
-                }
-            }
+            $result = request()->is($item['whereActive']);
 
             if (isset($item['whereNotActive'])) {
-                foreach ($item['whereNotActive'] as $e) {
-                    if (request()->segment($e['segment']) == $e['value']) {
-                        $result = false;
-                        break;
-                    }
-                }
+                $result = (request()->is($item['whereNotActive'])) ? false : true;
             }
 
             return $result;
@@ -514,33 +491,10 @@ class Menu
         if (isset($item['whereActive'])) {
             $result = false;
 
-            foreach ($item['whereActive'] as $e) {
-                if (isset($e['value']) and ! isset($e['type'])) {
-                    if (request()->segment($e['segment']) == $e['value']) {
-                        $result = true;
-                    } else {
-                        $result = false;
-                        break;
-                    }
-                }
-
-                if (isset($e['type']) and isset($e['value'])) {
-                    if (request($e['type']) == $e['value']) {
-                        $result = true;
-                    } else {
-                        $result = false;
-                        break;
-                    }
-                }
-            }
+            $result = request()->is($item['whereActive']);
 
             if (isset($item['whereNotActive'])) {
-                foreach ($item['whereNotActive'] as $e) {
-                    if (request()->segment($e['segment']) == $e['value']) {
-                        $result = false;
-                        break;
-                    }
-                }
+                $result = (request()->is($item['whereNotActive'])) ? false : true;
             }
 
             return $result;

@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v3.0.11
  */
 --}}
 
@@ -12,7 +12,7 @@
 		<div class="{{ Metronic::printClasses('footer-container', false) }} d-flex flex-column flex-md-row align-items-center justify-content-between">
 			{{-- Copyright --}}
 			<div class="text-dark order-2 order-md-1">
-				<span class="text-muted font-weight-bold mr-2">{{ date("Y") }} &copy;</span>{{ config('kobiyim.name') }}
+				<span class="text-muted font-weight-bold mr-2">{{ date("Y") }} &copy;</span>{{ config('kobiyim.name') }}</span>
 			</div>
 
 			{{-- Nav --}}

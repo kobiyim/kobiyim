@@ -2,7 +2,7 @@
  /**
  * Kobiyim
  * 
- * @version v3.0.0
+ * @version v3.0.11
  */
 --}}
 
@@ -23,7 +23,7 @@
 	<div class="brand flex-column-auto {{ Metronic::printClasses('brand', false) }}" id="kt_brand">
 		<div class="brand-logo">
 			<a href="{{ url('/') }}">
-				<img alt="{{ config('theme.app.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}"/>
+				<img alt="{{ config('kobiyim.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}"/>
 			</a>
 		</div>
 
@@ -41,7 +41,7 @@
 		@if (config('layout.aside.self.display') === false)
 			<div class="header-logo">
 				<a href="{{ url('/') }}">
-					<img alt="{{ config('theme.app.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}"/>
+					<img alt="{{ config('kobiyim.name') }}" src="{{ asset('media/logos/'.$kt_logo_image) }}"/>
 				</a>
 			</div>
 		@endif
