@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Kobiyim
- *
- * @version v3.0.9
- */
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +18,7 @@ class QueryLog extends Model
 
     protected $dates = ['created_at', 'updated_at'];
 
-    public function getUser()
+    public function user()
     {
         return $this->hasOne(User::class, 'id', 'causer_id');
     }

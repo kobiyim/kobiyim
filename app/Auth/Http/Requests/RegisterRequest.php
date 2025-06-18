@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Kobiyim
- *
- * @version v3.0.9
- */
-
 namespace App\Auth\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;

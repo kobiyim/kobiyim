@@ -24,7 +24,7 @@ class ActivityLog extends Model
 
     protected $dates = ['created_at', 'updated_at'];
 
-    public function getUser()
+    public function user()
     {
         return $this->hasOne(User::class, 'id', 'causer_id');
     }

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Kobiyim
- *
- * @version v3.0.9
- */
-
 namespace App\Console\Commands;
 
 use App\Models\User;

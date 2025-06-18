@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Kobiyim
- *
- * @version v3.0.0
- *
- */
-
 use App\Console\Commands\KobiyimBackup;
 use Illuminate\Support\Facades\Schedule;
 

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Kobiyim
- *
- * @version v3.0.9
- */
-
 namespace App\Auth\Http\Controllers;
 
 use App\Auth\Http\Requests\RegisterRequest;
@@ -16,7 +10,7 @@ class RegisteredUserController extends \Illuminate\Routing\Controller
 {
     public function create(Request $request)
     {
-        return view('kobiyim.auth.register');
+        return view('auth.register');
     }
 
     public function store(RegisterRequest $request, CreatesNewUsers $creator)
