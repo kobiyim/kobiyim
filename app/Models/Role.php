@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class Role extends Model
 {
-    protected $table = 'permissions';
+    protected $table = 'roles';
 
     protected $primaryKey = 'id';
 
@@ -17,4 +17,5 @@ class Permission extends Model
     public $timestamps = true;
 
     protected $dates = ['created_at', 'updated_at'];
+
 }
