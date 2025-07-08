@@ -19,7 +19,7 @@
                                         İşlemler
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a wire:click="dispatch('openModal', ['system.permission.create-modal'])" class="dropdown-item">+ Yeni</a></li>
+                                        <li><a href="{{ url('system/permission/create') }}" wire:navigate class="dropdown-item">+ Yeni</a></li>
                                     </ul>
                                 </div>
                             </div>

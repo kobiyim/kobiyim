@@ -42,12 +42,5 @@
         @include('components.partials.scripts')
         @stack('scripts')
 
-        <script>
-            window.addEventListener('closeModal', () => {
-                Livewire.dispatch('closeModal');
-            });
-        </script>
-
-        <livewire:dynamic-modal />
     </body>
 </html>

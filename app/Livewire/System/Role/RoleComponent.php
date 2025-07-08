@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\System;
+namespace App\Livewire\System\Role;
 
-use App\Models\Permission;
+use App\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class PermissionComponent extends Component
+class RoleComponent extends Component
 {
     use WithPagination;
 
@@ -18,7 +18,7 @@ class PermissionComponent extends Component
             ->filter()
             ->values();
 
-        $items = Permission::when($keywords->isNotEmpty(), function ($query) use ($keywords) {
+        $items = Role::when($keywords->isNotEmpty(), function ($query) use ($keywords) {
                                 foreach ($keywords as $keyword) {
                                     $query->where(function ($q) use ($keyword) {
                                         $q->whereHas('user', function ($subQ) use ($keyword) {
@@ -33,7 +33,7 @@ class PermissionComponent extends Component
                             })
                             ->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('system.permission', [ 'items' => $items ]);
+        return view('system.role', compact('items'));
     }
 
     public function updatingSearch()

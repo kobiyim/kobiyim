@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire\System\Permission;
+namespace App\Livewire\System\Role;
 
 use Livewire\Component;
-use App\Models\Permission;
+use App\Models\Role;
 
-class CreateModal extends Component
+class Create extends Component
 {
     public $name, $key;
 
@@ -13,7 +13,7 @@ class CreateModal extends Component
     {
         $this->validate([
             'name' => 'required',
-            'key' => 'required|unique:permissions,key',
+            'key' => 'required|unique:roles,key',
         ]);
 
         $data = [
@@ -21,7 +21,7 @@ class CreateModal extends Component
             'key' => $this->key,
         ];
 
-        Permission::create($data);
+        Role::create($data);
 
         $this->dispatch('closeModal');
     }

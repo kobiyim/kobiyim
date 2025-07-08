@@ -28,7 +28,7 @@
                                         İşlemler
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a wire:click="dispatch('openModal', ['user-form'])" class="dropdown-item">+ Yeni Kullanıcı</a></li>
+                                        <li><a href="{{ url('system/user/create') }}" wire:navigate class="dropdown-item">+ Yeni</a></li>
                                         <li><a wire:click="changeDetail" class="dropdown-item">Detaylı İncele</a></li>
                                     </ul>
                                 </div>
