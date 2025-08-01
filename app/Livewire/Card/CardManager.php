@@ -41,9 +41,18 @@ class CardManager extends Component
 
     public function render()
     {
-        $cards = Card::where(function ($query) {
-            $query->where('code', 'like', '%'.$this->search.'%')
-                ->orWhere('name', 'like', '%'.$this->search.'%');
+
+        $keywords = collect(explode(' ', trim($this->search)))
+            ->filter()
+            ->values();
+
+        $cards = Card::when($keywords->isNotEmpty(), function ($query) use ($keywords) {
+            foreach ($keywords as $keyword) {
+                $query->where(function ($q) use ($keyword) {
+                    $q->orWhere('code', 'like', '%'.$keyword.'%');
+                    $q->orWhere('name', 'like', '%'.$keyword.'%');
+                });
+            }
         });
 
         if ($this->active != '2') {
