@@ -50,7 +50,7 @@
                                     <table class="table table-nowrap align-middle">
                                         <thead>
                                             <tr>
-                                                <th wire:click="sortBy('code')" style="cursor: pointer;" scope="col">Kod  @if($sortField === 'code') @if($sortDirection === 'asc') ▲ @else ▼ @endif @endif </th>
+                                                <th width="11%" wire:click="sortBy('code')" style="cursor: pointer;" scope="col">Kod  @if($sortField === 'code') @if($sortDirection === 'asc') ▲ @else ▼ @endif @endif </th>
                                                 <th wire:click="sortBy('name')" style="cursor: pointer;" scope="col">Ad  @if($sortField === 'name') @if($sortDirection === 'asc') ▲ @else ▼ @endif @endif </th>
                                                 @if($showDetail)
                                                     <th scope="col">OÖG</th>
@@ -59,7 +59,7 @@
                                                     <th scope="col">Risk Skoru</th>
                                                     <th scope="col">Kalan Bakiye</th>
                                                 @endif
-                                                <th scope="col">Bakiye</th>
+                                                <th width="11%" scope="col">Bakiye</th>
                                                 <th scope="col" width="5%">İşlemler</th>
                                             </tr>
                                         </thead>

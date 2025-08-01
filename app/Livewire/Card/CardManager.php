@@ -97,6 +97,7 @@ class CardManager extends Component
         Card::create([
             'code' => $this->code,
             'name' => $this->name,
+            'active' => 1
         ]);
 
         $this->resetForm();
