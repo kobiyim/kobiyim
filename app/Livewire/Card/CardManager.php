@@ -5,6 +5,7 @@ namespace App\Livewire\Card;
 use App\Models\Card;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Validation\Rule;
 
 class CardManager extends Component
 {
@@ -29,11 +30,6 @@ class CardManager extends Component
     public $successMessage;
 
     public $showDetail = false;
-
-    protected $rules = [
-        'code' => 'required|max:13',
-        'name' => 'required|max:2056',
-    ];
 
     public $sortField = 'name';
 
@@ -92,7 +88,10 @@ class CardManager extends Component
 
     public function store()
     {
-        $this->validate();
+        $validated = $this->validate([ 
+            'code' => 'required|max:13|unique:App\Models\Card,code',
+            'name' => 'required|max:2056',
+        ]);
 
         Card::create([
             'code' => $this->code,
@@ -118,7 +117,10 @@ class CardManager extends Component
 
     public function update()
     {
-        $this->validate();
+        $validated = $this->validate([ 
+            'code' => ['required', 'max:13', Rule::unique('App\Models\Card', 'code')->ignore($this->card_id) ],
+            'name' => 'required|max:2056',
+        ]);
 
         $card = Card::findOrFail($this->card_id);
         $card->update([
