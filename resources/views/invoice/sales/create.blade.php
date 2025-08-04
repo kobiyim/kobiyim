@@ -75,7 +75,7 @@
                                                     <td>
                                                         <select wire:model="details.{{$index}}.unit_id" class="form-control">
                                                             @if($details[$index]['stock_id'])
-                                                                @foreach (\App\Models\Lunaris\Unit::where('unit_set_id', \App\Models\Lunaris\Item::find($details[$index]['stock_id'])->unit_set_id)->get()->pluck('name', 'id')->prepend('Seçiniz', '') as $unitKey => $unitName)
+                                                                @foreach (\App\Models\Unit::where('unit_set_id', \App\Models\Item::find($details[$index]['stock_id'])->unit_set_id)->get()->pluck('name', 'id')->prepend('Seçiniz', '') as $unitKey => $unitName)
                                                                     <option value="{{ $unitKey }}">{{ $unitName }}</option>
                                                                 @endforeach
                                                             @endif
