@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Kobiyim
+ *
+ * @version v3.0.9
+ */
+
 namespace App\Auth\Http\Controllers;
 
 use App\Auth\Http\Requests\LoginRequest;
@@ -22,7 +28,7 @@ class AuthenticatedSessionController extends \Illuminate\Routing\Controller
 
     public function create(Request $request)
     {
-        return view('auth.login');
+        return view('kobiyim.auth.login');
     }
 
     public function store(LoginRequest $request)

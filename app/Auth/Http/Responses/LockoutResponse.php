@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Kobiyim
+ *
+ * @version v3.0.9
+ */
+
 namespace App\Auth\Http\Responses;
 
 use App\Auth\Services\LoginRateLimiter;

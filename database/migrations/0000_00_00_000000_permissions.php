@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Kobiyim
+ *
+ * @version v3.0.2
+ *
+ */
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +21,7 @@ return new class extends Migration
         Schema::create('permissions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 64);
-            $table->string('key', 64)->unique();
+            $table->string('key', 64);
             $table->timestampsTz();
         });
     }
