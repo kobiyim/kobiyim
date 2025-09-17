@@ -3,10 +3,10 @@
 /**
  * Kobiyim
  *
- * @version v3.0.9
+ * @version v4.0.0
  */
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Kobiyim;
 
 use Illuminate\Console\Command;
 
@@ -24,7 +24,7 @@ class KobiyimInform extends Command
     public function handle()
     {
         $this->info('Kobiyim e hoşgeldiniz.');
-        $this->info('İsteklerinize özel yönetim panelini hızla ayağa kaldırmaya başlayabilirsiniz.');
+        $this->info('İsteklerinize özel yönetim panelini geliştirmeye başlayabilirsiniz.');
         $this->info('Bu süreçte kobiyim:install komutu ile ilk ayarları yapabilirsiniz.');
         $this->info('İyi Çalışmalar');
     }

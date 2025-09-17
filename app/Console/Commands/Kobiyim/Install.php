@@ -3,10 +3,10 @@
 /**
  * Kobiyim
  *
- * @version v3.0.9
+ * @version v4.0.0
  */
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Kobiyim;
 
 use Illuminate\Console\Command;
 

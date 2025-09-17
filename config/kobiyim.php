@@ -20,6 +20,10 @@ return [
     'user_types' => [
         'admin' => 'Yönetici',
         'user'  => 'Kullanıcı'
-    ]
+    ],
+
+    'backuptables' => env('BACKUPTABLES'),
+
+    'backupfiles' => env('BACKUPFILES')
 
 ];

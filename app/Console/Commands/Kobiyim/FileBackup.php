@@ -3,12 +3,12 @@
 /**
  * Kobiyim
  *
- * @version v3.0.9
+ * @version v4.0.0
  */
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Kobiyim;
 
-use App\Models\Backup;
+use App\Models\Kobiyim\Backup;
 use Illuminate\Console\Command;
 
 class KobiyimFileBackup extends Command
@@ -29,7 +29,7 @@ class KobiyimFileBackup extends Command
         $backupFilename = now()->format('Ymd-Hi').'.zip';
         $backupDir = storage_path('backup/'.$backupFilename);
 
-        $dirsToZip = env('BACKUPFILES');
+        $dirsToZip = config('kobiyim.backupfiles');
 
         foreach (explode(';', $dirsToZip) as $dir) {
 
